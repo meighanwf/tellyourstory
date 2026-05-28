@@ -1,0 +1,1381 @@
+<!DOCTYPE html>
+<!-- saved from url=(0042)https://yourstorymatters.netlify.app/#home -->
+<html lang="en"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Mrs. Friedsam's College Essay Workshop</title>
+<link rel="preconnect" href="https://fonts.googleapis.com/">
+<link href="./Mrs. Friedsam&#39;s College Essay Workshop_files/css2" rel="stylesheet">
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  :root {
+    --bg: #F7F6F2;
+    --surface: #FFFFFF;
+    --surface2: #EFEFEB;
+    --yellow: #F0B429;
+    --yellow-dim: #FEF3D7;
+    --coral: #E8412A;
+    --coral-dim: #FDECEA;
+    --teal: #0B7A75;
+    --teal-dim: #E0F4F3;
+    --purple: #6C47D4;
+    --purple-dim: #EEE9FB;
+    --ink: #111111;
+    --ink-muted: #555555;
+    --ink-faint: #999999;
+    --border: rgba(0,0,0,0.08);
+    --border-bright: rgba(0,0,0,0.15);
+    --radius: 14px;
+    --font-head: 'Syne', system-ui, sans-serif;
+    --font-body: 'Plus Jakarta Sans', system-ui, sans-serif;
+  }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    font-family: var(--font-body);
+    background: var(--bg);
+    color: var(--ink);
+    line-height: 1.7;
+    font-size: 16px;
+  }
+
+  /* NAV */
+  nav {
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    background: rgba(247,246,242,0.97);
+    backdrop-filter: blur(12px);
+    border-bottom: 1px solid var(--border);
+    padding: 0 2rem;
+  }
+  .nav-inner {
+    max-width: 1000px;
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    height: 62px;
+  }
+  .nav-logo {
+    font-family: var(--font-head);
+    font-size: 1rem;
+    font-weight: 800;
+    color: var(--coral);
+    text-decoration: none;
+    letter-spacing: -0.01em;
+  }
+  .nav-links {
+    display: flex;
+    gap: 0.2rem;
+    list-style: none;
+  }
+  .nav-links a, .nav-btn {
+    font-size: 0.85rem;
+    font-weight: 600;
+    color: var(--ink-muted);
+    text-decoration: none;
+    padding: 0.4rem 0.85rem;
+    border-radius: 100px;
+    transition: background 0.15s, color 0.15s;
+    background: none;
+    border: none;
+    cursor: pointer;
+    font-family: var(--font-body);
+  }
+  .nav-links a:hover, .nav-btn:hover { background: var(--surface2); color: var(--ink); }
+  .nav-links a.active, .nav-btn.active { background: var(--coral); color: white; }
+
+  /* SECTIONS */
+  section {
+    display: none;
+    min-height: 100vh;
+    padding: 4rem 2rem;
+    animation: fadeIn 0.3s ease;
+  }
+  section.active { display: block; }
+  @keyframes fadeIn { from { opacity: 0; transform: translateY(8px); } to { opacity: 1; transform: none; } }
+
+  .container { max-width: 820px; margin: 0 auto; }
+  .container-wide { max-width: 1000px; margin: 0 auto; }
+
+  /* TYPOGRAPHY */
+  .section-label {
+    font-family: var(--font-body);
+    font-size: 0.75rem;
+    font-weight: 600;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--teal);
+    margin-bottom: 0.6rem;
+  }
+  h1 {
+    font-family: var(--font-head);
+    font-size: clamp(2.2rem, 5vw, 3.4rem);
+    font-weight: 800;
+    line-height: 1.1;
+    color: var(--ink);
+    margin-bottom: 1.25rem;
+    letter-spacing: -0.02em;
+  }
+  h1 em { color: var(--yellow); font-style: normal; }
+  h2 {
+    font-family: var(--font-head);
+    font-size: 1.55rem;
+    font-weight: 700;
+    color: var(--ink);
+    margin-bottom: 0.75rem;
+    letter-spacing: -0.01em;
+  }
+  h3 {
+    font-family: var(--font-body);
+    font-size: 1rem;
+    font-weight: 600;
+    color: var(--ink);
+    margin-bottom: 0.4rem;
+  }
+  p { color: var(--ink-muted); margin-bottom: 1rem; }
+  p:last-child { margin-bottom: 0; }
+
+  /* HERO */
+  .hero-intro {
+    font-size: 1.1rem;
+    line-height: 1.8;
+    color: var(--ink-muted);
+    max-width: 580px;
+    margin-bottom: 2.5rem;
+  }
+  .hero-badges {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.6rem;
+    margin-bottom: 3.5rem;
+  }
+  .badge {
+    font-size: 0.85rem;
+    font-weight: 600;
+    padding: 0.5rem 1rem;
+    border-radius: 100px;
+    background: var(--surface2);
+    color: var(--ink-muted);
+    cursor: pointer;
+    transition: background 0.15s, color 0.15s;
+    border: 1px solid var(--border-bright);
+    font-family: var(--font-body);
+  }
+  .badge:hover { background: var(--coral); color: white; border-color: var(--coral); }
+
+  /* CARDS */
+  .card {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    padding: 1.5rem 1.75rem;
+    margin-bottom: 1rem;
+  }
+  .card-accent {
+    border-left: 3px solid var(--coral);
+    border-radius: 0 var(--radius) var(--radius) 0;
+    background: var(--coral-dim);
+  }
+  .card-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 1rem;
+    margin-bottom: 2rem;
+  }
+  .card-forest {
+    border-left: 3px solid var(--teal);
+    border-radius: 0 var(--radius) var(--radius) 0;
+    background: var(--teal-dim);
+  }
+  .card-gold {
+    border-left: 3px solid var(--yellow);
+    border-radius: 0 var(--radius) var(--radius) 0;
+    background: var(--yellow-dim);
+  }
+
+  /* QUOTE */
+  .quote-block {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-left: 4px solid var(--coral);
+    border-radius: 0 var(--radius) var(--radius) 0;
+    padding: 1.5rem 2rem;
+    margin-bottom: 1rem;
+    position: relative;
+  }
+  .quote-block::before {
+    content: '"';
+    font-family: var(--font-head);
+    font-size: 4rem;
+    font-weight: 800;
+    color: var(--coral);
+    position: absolute;
+    top: 0.5rem;
+    left: 1.25rem;
+    line-height: 1;
+    opacity: 0.2;
+  }
+  .quote-block p {
+    font-family: var(--font-body);
+    font-style: italic;
+    font-size: 1rem;
+    color: var(--ink);
+    margin-bottom: 0.75rem;
+    padding-left: 1.5rem;
+  }
+  .quote-source {
+    font-size: 0.8rem;
+    font-weight: 600;
+    color: var(--coral);
+    font-style: normal;
+    font-family: var(--font-body);
+    padding-left: 1.5rem;
+    display: block;
+  }
+
+  /* DIVIDER */
+  .section-divider {
+    border: none;
+    border-top: 1px solid var(--border);
+    margin: 2.5rem 0;
+  }
+
+  /* DOS/DONTS */
+  .do-dont-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1.25rem;
+    margin-bottom: 2rem;
+  }
+  @media (max-width: 600px) { .do-dont-grid { grid-template-columns: 1fr; } }
+  .do-box {
+    background: var(--teal-dim);
+    border: 1px solid rgba(62,207,178,0.2);
+    border-radius: var(--radius);
+    padding: 1.25rem 1.5rem;
+  }
+  .do-box h3 { color: var(--teal); margin-bottom: 0.75rem; font-size: 1.1rem; }
+  .dont-box {
+    background: var(--coral-dim);
+    border: 1px solid rgba(255,107,107,0.2);
+    border-radius: var(--radius);
+    padding: 1.25rem 1.5rem;
+  }
+  .dont-box h3 { color: var(--coral); margin-bottom: 0.75rem; font-size: 1.1rem; }
+  .rule-list { list-style: none; padding: 0; }
+  .rule-list li {
+    font-size: 0.92rem;
+    color: var(--ink-muted);
+    padding: 0.4rem 0;
+    border-bottom: 1px solid var(--border);
+    padding-left: 1.4rem;
+    position: relative;
+  }
+  .rule-list li::before {
+    content: '✓';
+    position: absolute;
+    left: 0;
+    color: var(--teal);
+    font-weight: 700;
+    font-size: 0.82rem;
+  }
+  .dont-list li::before { content: '✗'; color: var(--coral); }
+  .rule-list li:last-child { border-bottom: none; }
+
+  /* ACTIVITY SECTIONS */
+  .activity-header {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    margin-bottom: 2rem;
+  }
+  .activity-number {
+    width: 44px;
+    height: 44px;
+    border-radius: 10px;
+    background: var(--yellow);
+    color: #111111;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: var(--font-head);
+    font-size: 1.1rem;
+    font-weight: 800;
+    flex-shrink: 0;
+  }
+
+  /* PROMPTS */
+  .prompt-card {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    padding: 1.25rem 1.5rem;
+    margin-bottom: 0.75rem;
+    cursor: pointer;
+    transition: border-color 0.15s, background 0.15s;
+  }
+  .prompt-card:hover { border-color: var(--yellow); background: var(--surface2); }
+  .prompt-card h3 { font-size: 1rem; margin-bottom: 0.3rem; }
+  .prompt-card p { font-size: 0.9rem; }
+  .prompt-expanded {
+    background: var(--yellow-dim);
+    border: 1px solid rgba(245,230,66,0.2);
+    border-radius: var(--radius);
+    padding: 1rem 1.5rem;
+    margin-top: 0.5rem;
+    margin-bottom: 0.75rem;
+    display: none;
+  }
+  .prompt-expanded.open { display: block; }
+  .prompt-expanded p { font-size: 0.9rem; color: var(--ink-muted); }
+  .prompt-expanded ul { list-style: disc; padding-left: 1.25rem; }
+  .prompt-expanded ul li { font-size: 0.9rem; color: var(--ink-muted); margin-bottom: 0.25rem; }
+
+  /* CHECKLIST */
+  .checklist {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    gap: 0.5rem;
+    margin-bottom: 1.5rem;
+  }
+  .check-item {
+    display: flex;
+    align-items: center;
+    gap: 0.6rem;
+    padding: 0.5rem 0.75rem;
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background 0.15s, border-color 0.15s;
+    font-size: 0.88rem;
+    color: var(--ink-muted);
+    user-select: none;
+  }
+  .check-item:hover { background: var(--surface2); border-color: var(--border-bright); }
+  .check-item.checked { background: var(--teal-dim); border-color: rgba(62,207,178,0.3); color: var(--teal); font-weight: 500; }
+  .check-box {
+    width: 17px;
+    height: 17px;
+    border: 1.5px solid var(--border-bright);
+    border-radius: 4px;
+    flex-shrink: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 10px;
+  }
+  .check-item.checked .check-box { background: var(--teal); border-color: var(--teal); color: white; }
+
+  /* TEXTAREA */
+  .write-area {
+    width: 100%;
+    min-height: 180px;
+    padding: 1rem 1.25rem;
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    background: var(--surface);
+    font-family: var(--font-body);
+    font-size: 0.95rem;
+    color: var(--ink);
+    line-height: 1.7;
+    resize: vertical;
+    transition: border-color 0.15s;
+    margin-bottom: 0.5rem;
+  }
+  .write-area:focus { outline: none; border-color: var(--yellow); }
+  .write-area::placeholder { color: var(--ink-faint); }
+
+  /* STEP LIST */
+  .step-list { list-style: none; counter-reset: steps; }
+  .step-list li {
+    counter-increment: steps;
+    display: flex;
+    gap: 1rem;
+    margin-bottom: 1.25rem;
+    align-items: flex-start;
+  }
+  .step-list li::before {
+    content: counter(steps);
+    min-width: 28px;
+    height: 28px;
+    border-radius: 8px;
+    background: var(--yellow);
+    color: #111111;
+    font-weight: 800;
+    font-size: 0.85rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    margin-top: 0.1rem;
+    font-family: var(--font-head);
+  }
+  .step-list li p { margin: 0; font-size: 0.95rem; }
+
+  /* VIDEO */
+  .video-label { font-size: 0.88rem; font-weight: 600; color: var(--ink); margin-bottom: 0.25rem; }
+  .video-desc { font-size: 0.83rem; color: var(--ink-faint); }
+
+  /* CLICHE */
+  .cliche-box {
+    background: var(--yellow-dim);
+    border: 1px solid rgba(245,230,66,0.2);
+    border-radius: var(--radius);
+    padding: 1.25rem 1.5rem;
+    margin-bottom: 1rem;
+  }
+  .cliche-phrase { font-family: var(--font-body); font-style: italic; font-weight: 600; color: var(--yellow); }
+
+  /* ARC DIAGRAM */
+  .arc-steps {
+    display: flex;
+    flex-direction: column;
+    gap: 0;
+    position: relative;
+    padding-left: 2.5rem;
+    border-left: 2px dashed var(--border-bright);
+    margin: 1.5rem 0 1.5rem 1rem;
+  }
+  .arc-step {
+    position: relative;
+    padding: 0.75rem 0 0.75rem 1.25rem;
+  }
+  .arc-dot {
+    position: absolute;
+    left: -2.9rem;
+    top: 1rem;
+    width: 14px;
+    height: 14px;
+    border-radius: 50%;
+    background: var(--coral);
+    border: 2px solid var(--surface);
+    box-shadow: 0 0 0 2px var(--coral);
+  }
+  .arc-step h3 { font-size: 0.95rem; margin-bottom: 0.2rem; }
+  .arc-step p { font-size: 0.88rem; margin: 0; }
+
+  /* HIGHLIGHT BOX */
+  .highlight {
+    background: var(--yellow-dim);
+    border: 1px solid rgba(245,230,66,0.25);
+    border-radius: var(--radius);
+    padding: 1.25rem 1.5rem;
+    margin: 1.5rem 0;
+  }
+  .highlight p { color: var(--yellow); font-weight: 500; margin: 0; }
+
+  /* TABS */
+  .tab-row {
+    display: flex;
+    gap: 0.4rem;
+    border-bottom: 1px solid var(--border);
+    margin-bottom: 2rem;
+    flex-wrap: wrap;
+  }
+  .tab-btn {
+    font-size: 0.85rem;
+    font-weight: 600;
+    color: var(--ink-faint);
+    background: none;
+    border: none;
+    border-bottom: 2px solid transparent;
+    padding: 0.6rem 0.9rem;
+    cursor: pointer;
+    font-family: var(--font-body);
+    transition: color 0.15s, border-color 0.15s;
+    margin-bottom: -1px;
+  }
+  .tab-btn:hover { color: var(--ink); }
+  .tab-btn.active { color: var(--yellow); border-bottom-color: var(--yellow); }
+  .tab-panel { display: none; }
+  .tab-panel.active { display: block; }
+
+  /* BUTTON */
+  .btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.6rem 1.25rem;
+    border-radius: 8px;
+    font-size: 0.9rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background 0.15s;
+    font-family: var(--font-body);
+    border: none;
+  }
+  .btn-primary { background: var(--coral); color: white; }
+  .btn-primary:hover { background: #c73520; }
+  .btn-secondary { background: var(--surface2); color: var(--ink); border: 1px solid var(--border-bright); }
+  .btn-secondary:hover { background: var(--surface); }
+
+  @media (max-width: 640px) {
+    .nav-links { display: none; }
+    h1 { font-size: 1.8rem; }
+  }
+</style>
+</head>
+<body>
+
+<nav>
+  <div class="nav-inner">
+    <button onclick="showSection(&#39;home&#39;)" class="nav-logo">Ms. WF's College Essay Writing</button>
+    <ul class="nav-links">
+      <li><button onclick="showSection(&#39;home&#39;)" id="nav-home" class="nav-btn active">Home</button></li>
+      <li><button onclick="showSection(&#39;reflect&#39;)" id="nav-reflect" class="nav-btn">Reflect</button></li>
+      <li><button onclick="showSection(&#39;brainstorm&#39;)" id="nav-brainstorm" class="nav-btn">Brainstorm</button></li>
+      <li><button onclick="showSection(&#39;watch&#39;)" id="nav-watch" class="nav-btn">Watch</button></li>
+      <li><button onclick="showSection(&#39;draft&#39;)" id="nav-draft" class="nav-btn">Draft</button></li>
+    </ul>
+  </div>
+</nav>
+
+<!-- ===== HOME ===== -->
+<section id="home" class="active">
+  <div class="container">
+    <div class="section-label">Ms. Friedsam's College Essay Workshop</div>
+    <h1>Your story matters.<br>Let's learn how to tell it.</h1>
+    <p class="hero-intro">The college essay is your chance to show admissions officers who you are beyond grades and test scores — a living, breathing portrait of you as a student, a leader, and a human being.</p>
+
+    <div class="hero-badges">
+      <button class="badge" onclick="showSection(&#39;reflect&#39;); return false;">→ Reflect on your identity</button>
+      <button class="badge" onclick="showSection(&#39;brainstorm&#39;); return false;">→ Brainstorm your story</button>
+      <button class="badge" onclick="showSection(&#39;watch&#39;); return false;">→ Watch &amp; learn</button>
+      <button class="badge" onclick="showSection(&#39;draft&#39;); return false;">→ Draft &amp; refine</button>
+    </div>
+
+    <h2>What is the college essay?</h2>
+    <div class="card card-accent" style="margin-bottom: 1rem;">
+      <p>No matter the topic or prompt, all college essays essentially answer two questions: <strong style="color: var(--ink);">Who are you?</strong> And <strong style="color: var(--ink);">What do you care about?</strong></p>
+    </div>
+
+    <div class="card-grid" style="margin-top: 1.5rem;">
+      <div class="card">
+        <h3>Reflect your personality</h3>
+        <p>The essay should sound like <em>you</em> — in your own voice, telling a story only you can tell.</p>
+      </div>
+      <div class="card">
+        <h3>Reveal your character</h3>
+        <p>Shed light on who you are as a student, a leader, and a human being through lively, specific anecdotes.</p>
+      </div>
+      <div class="card">
+        <h3>Go beyond the application</h3>
+        <p>This is your chance to share what no grade, test score, or activity list can communicate.</p>
+      </div>
+    </div>
+
+    <hr class="section-divider">
+
+    <h2>What admissions officers say</h2>
+    <div class="quote-block">
+      <p>"In the essay, you have to be on stage. You can share the stage with others, but the audience wants to see <em>you.</em>"</p>
+      <span class="quote-source">— Vassar College</span>
+    </div>
+    <div class="quote-block">
+      <p>"If one views the grades and program of study as a skeleton, then the essays put flesh and blood on the skeleton. The totality is what makes an applicant become a real person."</p>
+      <span class="quote-source">— University of Virginia</span>
+    </div>
+    <div class="quote-block">
+      <p>"Of all the essays I read, roughly 70% do nothing for the student; 20% help the student by bringing the application to life; and 5% actually hurt the applicant's chances."</p>
+      <span class="quote-source">— Emory University</span>
+    </div>
+
+    <div class="highlight">
+      <p>🎯 The goal: be part of the 20% that brings your application to life.</p>
+    </div>
+
+    <hr class="section-divider">
+
+    <h2>Do's and Don'ts</h2>
+    <div class="do-dont-grid">
+      <div class="do-box">
+        <h3>✓ Do</h3>
+        <ul class="rule-list">
+          <li>Reveal something about your character and personality</li>
+          <li>Answer the actual question or prompt</li>
+          <li>Open with a catchy, memorable first sentence</li>
+          <li>Write about something small in scale — a story only you can tell</li>
+          <li>Be honest. Let the reader hear your real voice</li>
+          <li>Use language you're actually comfortable with</li>
+          <li>Write about something that impacted your private life</li>
+        </ul>
+      </div>
+      <div class="dont-box">
+        <h3>✗ Don't</h3>
+        <ul class="rule-list dont-list">
+          <li>Write a list of your attributes or activities</li>
+          <li>Use the same essay for every application (check the college name!)</li>
+          <li>Over-rely on a thesaurus to sound sophisticated</li>
+          <li>Write about someone else's tragedy — you should be the star</li>
+          <li>Use gimmicks like haiku or third-person narration</li>
+          <li>Mention your SAT scores or grades in the essay</li>
+          <li>Let someone else do too much editorial work on it</li>
+        </ul>
+      </div>
+    </div>
+
+    <hr class="section-divider">
+
+    <h2>Your process</h2>
+    <ol class="step-list">
+      <li><p>Reflect on your personal qualities and identity</p></li>
+      <li><p>Brainstorm specific incidents, passions, and moments of growth</p></li>
+      <li><p>Free write about one incident and let the story unfold</p></li>
+      <li><p>Share with someone who can offer honest, helpful feedback</p></li>
+      <li><p>Revise and rewrite — the magic happens in revision</p></li>
+    </ol>
+  </div>
+</section>
+
+<!-- ===== REFLECT ===== -->
+<section id="reflect">
+  <div class="container">
+    <div class="section-label">Activity 1 · Reflection</div>
+    <h1>Who are you?</h1>
+    <p style="font-size: 1.05rem; color: var(--ink-muted); margin-bottom: 2rem;">Before you can write your essay, you need to know yourself. This three-step activity helps you identify and prioritize the qualities that make you <em>you</em>.</p>
+
+    <div style="display: flex; gap: 0.75rem; margin-bottom: 2rem; flex-wrap: wrap;">
+      <div style="flex: 1; min-width: 180px; background: var(--coral-dim); border-radius: var(--radius); padding: 1rem 1.25rem;">
+        <p style="font-weight: 600; color: var(--coral); margin-bottom: 0.25rem; font-size: 0.9rem;">Step 1</p>
+        <p style="font-size: 0.88rem; color: var(--coral); margin: 0;">Check every word that describes you.</p>
+      </div>
+      <div style="flex: 1; min-width: 180px; background: var(--teal-dim); border-radius: var(--radius); padding: 1rem 1.25rem;">
+        <p style="font-weight: 600; color: var(--teal); margin-bottom: 0.25rem; font-size: 0.9rem;">Step 2</p>
+        <p style="font-size: 0.88rem; color: var(--teal); margin: 0;">From your checked items, click the <strong>★</strong> to circle your top 10.</p>
+      </div>
+      <div style="flex: 1; min-width: 180px; background: var(--yellow-dim); border-radius: var(--radius); padding: 1rem 1.25rem;">
+        <p style="font-weight: 600; color: var(--yellow); margin-bottom: 0.25rem; font-size: 0.9rem;">Step 3</p>
+        <p style="font-size: 0.88rem; color: var(--ink-muted); margin: 0;">Rank your top 10 below (1 = most descriptive).</p>
+      </div>
+    </div>
+
+    <div style="display: flex; align-items: center; justify-content: space-between; margin-bottom: 0.75rem; flex-wrap: wrap; gap: 0.5rem;">
+      <h2 style="margin: 0;">Identify personal qualities</h2>
+      <span id="check-counter" style="font-size: 0.85rem; color: var(--ink-faint);">0 checked · 0 starred</span>
+    </div>
+
+    <div class="checklist" id="identity-checklist"><div class="check-item" data-index="0"><div class="check-box"></div><span>accommodating</span><span class="star-btn" style="margin-left:auto;font-size:1rem;color:var(--border);display:none;cursor:pointer;" title="Add to top 10">☆</span></div><div class="check-item" data-index="1"><div class="check-box"></div><span>accurate</span><span class="star-btn" style="margin-left:auto;font-size:1rem;color:var(--border);display:none;cursor:pointer;" title="Add to top 10">☆</span></div><div class="check-item" data-index="2"><div class="check-box"></div><span>adaptable</span><span class="star-btn" style="margin-left:auto;font-size:1rem;color:var(--border);display:none;cursor:pointer;" title="Add to top 10">☆</span></div><div class="check-item" data-index="3"><div class="check-box"></div><span>adventurous</span><span class="star-btn" style="margin-left:auto;font-size:1rem;color:var(--border);display:none;cursor:pointer;" title="Add to top 10">☆</span></div><div class="check-item" data-index="4"><div class="check-box"></div><span>ambitious</span><span class="star-btn" style="margin-left:auto;font-size:1rem;color:var(--border);display:none;cursor:pointer;" title="Add to top 10">☆</span></div><div class="check-item" data-index="5"><div class="check-box"></div><span>analytical</span><span class="star-btn" style="margin-left:auto;font-size:1rem;color:var(--border);display:none;cursor:pointer;" title="Add to top 10">☆</span></div><div class="check-item" data-index="6"><div class="check-box"></div><span>appreciate diversity</span><span class="star-btn" style="margin-left:auto;font-size:1rem;color:var(--border);display:none;cursor:pointer;" title="Add to top 10">☆</span></div><div class="check-item" data-index="7"><div class="check-box"></div><span>appreciate feedback</span><span class="star-btn" style="margin-left:auto;font-size:1rem;color:var(--border);display:none;cursor:pointer;" title="Add to top 10">☆</span></div><div class="check-item" data-index="8"><div class="check-box"></div><span>approachable</span><span class="star-btn" style="margin-left:auto;font-size:1rem;color:var(--border);display:none;cursor:pointer;" title="Add to top 10">☆</span></div><div class="check-item" data-index="9"><div class="check-box"></div><span>articulate</span><span class="star-btn" style="margin-left:auto;font-size:1rem;color:var(--border);display:none;cursor:pointer;" title="Add to top 10">☆</span></div><div class="check-item" data-index="10"><div class="check-box"></div><span>assertive</span><span class="star-btn" style="margin-left:auto;font-size:1rem;color:var(--border);display:none;cursor:pointer;" title="Add to top 10">☆</span></div><div class="check-item" data-index="11"><div class="check-box"></div><span>authentic</span><span class="star-btn" style="margin-left:auto;font-size:1rem;color:var(--border);display:none;cursor:pointer;" title="Add to top 10">☆</span></div><div class="check-item" data-index="12"><div class="check-box"></div><span>autonomous</span><span class="star-btn" style="margin-left:auto;font-size:1rem;color:var(--border);display:none;cursor:pointer;" title="Add to top 10">☆</span></div><div class="check-item" data-index="13"><div class="check-box"></div><span>calm under pressure</span><span class="star-btn" style="margin-left:auto;font-size:1rem;color:var(--border);display:none;cursor:pointer;" title="Add to top 10">☆</span></div><div class="check-item" data-index="14"><div class="check-box"></div><span>candid</span><span class="star-btn" style="margin-left:auto;font-size:1rem;color:var(--border);display:none;cursor:pointer;" title="Add to top 10">☆</span></div><div class="check-item" data-index="15"><div class="check-box"></div><span>cautious</span><span class="star-btn" style="margin-left:auto;font-size:1rem;color:var(--border);display:none;cursor:pointer;" title="Add to top 10">☆</span></div><div class="check-item" data-index="16"><div class="check-box"></div><span>cheerful</span><span class="star-btn" style="margin-left:auto;font-size:1rem;color:var(--border);display:none;cursor:pointer;" title="Add to top 10">☆</span></div><div class="check-item" data-index="17"><div class="check-box"></div><span>collaborative</span><span class="star-btn" style="margin-left:auto;font-size:1rem;color:var(--border);display:none;cursor:pointer;" title="Add to top 10">☆</span></div><div class="check-item" data-index="18"><div class="check-box"></div><span>compassionate</span><span class="star-btn" style="margin-left:auto;font-size:1rem;color:var(--border);display:none;cursor:pointer;" title="Add to top 10">☆</span></div><div class="check-item" data-index="19"><div class="check-box"></div><span>committed to integrity</span><span class="star-btn" style="margin-left:auto;font-size:1rem;color:var(--border);display:none;cursor:pointer;" title="Add to top 10">☆</span></div><div class="check-item" data-index="20"><div class="check-box"></div><span>competitive</span><span class="star-btn" style="margin-left:auto;font-size:1rem;color:var(--border);display:none;cursor:pointer;" title="Add to top 10">☆</span></div><div class="check-item" data-index="21"><div class="check-box"></div><span>confident</span><span class="star-btn" style="margin-left:auto;font-size:1rem;color:var(--border);display:none;cursor:pointer;" title="Add to top 10">☆</span></div><div class="check-item" data-index="22"><div class="check-box"></div><span>congenial</span><span class="star-btn" style="margin-left:auto;font-size:1rem;color:var(--border);display:none;cursor:pointer;" title="Add to top 10">☆</span></div><div class="check-item" data-index="23"><div class="check-box"></div><span>conscientious</span><span class="star-btn" style="margin-left:auto;font-size:1rem;color:var(--border);display:none;cursor:pointer;" title="Add to top 10">☆</span></div><div class="check-item" data-index="24"><div class="check-box"></div><span>conservative</span><span class="star-btn" style="margin-left:auto;font-size:1rem;color:var(--border);display:none;cursor:pointer;" title="Add to top 10">☆</span></div><div class="check-item" data-index="25"><div class="check-box"></div><span>considerate</span><span class="star-btn" style="margin-left:auto;font-size:1rem;color:var(--border);display:none;cursor:pointer;" title="Add to top 10">☆</span></div><div class="check-item" data-index="26"><div class="check-box"></div><span>consistent</span><span class="star-btn" style="margin-left:auto;font-size:1rem;color:var(--border);display:none;cursor:pointer;" title="Add to top 10">☆</span></div><div class="check-item" data-index="27"><div class="check-box"></div><span>cooperative</span><span class="star-btn" style="margin-left:auto;font-size:1rem;color:var(--border);display:none;cursor:pointer;" title="Add to top 10">☆</span></div><div class="check-item" data-index="28"><div class="check-box"></div><span>cost-conscious</span><span class="star-btn" style="margin-left:auto;font-size:1rem;color:var(--border);display:none;cursor:pointer;" title="Add to top 10">☆</span></div><div class="check-item" data-index="29"><div class="check-box"></div><span>creative</span><span class="star-btn" style="margin-left:auto;font-size:1rem;color:var(--border);display:none;cursor:pointer;" title="Add to top 10">☆</span></div><div class="check-item" data-index="30"><div class="check-box"></div><span>curious</span><span class="star-btn" style="margin-left:auto;font-size:1rem;color:var(--border);display:none;cursor:pointer;" title="Add to top 10">☆</span></div><div class="check-item" data-index="31"><div class="check-box"></div><span>decisive</span><span class="star-btn" style="margin-left:auto;font-size:1rem;color:var(--border);display:none;cursor:pointer;" title="Add to top 10">☆</span></div><div class="check-item" data-index="32"><div class="check-box"></div><span>dedicated</span><span class="star-btn" style="margin-left:auto;font-size:1rem;color:var(--border);display:none;cursor:pointer;" title="Add to top 10">☆</span></div><div class="check-item" data-index="33"><div class="check-box"></div><span>dependable</span><span class="star-btn" style="margin-left:auto;font-size:1rem;color:var(--border);display:none;cursor:pointer;" title="Add to top 10">☆</span></div><div class="check-item" data-index="34"><div class="check-box"></div><span>detail-oriented</span><span class="star-btn" style="margin-left:auto;font-size:1rem;color:var(--border);display:none;cursor:pointer;" title="Add to top 10">☆</span></div><div class="check-item" data-index="35"><div class="check-box"></div><span>determined</span><span class="star-btn" style="margin-left:auto;font-size:1rem;color:var(--border);display:none;cursor:pointer;" title="Add to top 10">☆</span></div><div class="check-item" data-index="36"><div class="check-box"></div><span>diplomatic</span><span class="star-btn" style="margin-left:auto;font-size:1rem;color:var(--border);display:none;cursor:pointer;" title="Add to top 10">☆</span></div><div class="check-item" data-index="37"><div class="check-box"></div><span>disciplined</span><span class="star-btn" style="margin-left:auto;font-size:1rem;color:var(--border);display:none;cursor:pointer;" title="Add to top 10">☆</span></div><div class="check-item" data-index="38"><div class="check-box"></div><span>discreet</span><span class="star-btn" style="margin-left:auto;font-size:1rem;color:var(--border);display:none;cursor:pointer;" title="Add to top 10">☆</span></div><div class="check-item" data-index="39"><div class="check-box"></div><span>driven</span><span class="star-btn" style="margin-left:auto;font-size:1rem;color:var(--border);display:none;cursor:pointer;" title="Add to top 10">☆</span></div><div class="check-item" data-index="40"><div class="check-box"></div><span>dynamic</span><span class="star-btn" style="margin-left:auto;font-size:1rem;color:var(--border);display:none;cursor:pointer;" title="Add to top 10">☆</span></div><div class="check-item" data-index="41"><div class="check-box"></div><span>eager</span><span class="star-btn" style="margin-left:auto;font-size:1rem;color:var(--border);display:none;cursor:pointer;" title="Add to top 10">☆</span></div><div class="check-item" data-index="42"><div class="check-box"></div><span>efficient</span><span class="star-btn" style="margin-left:auto;font-size:1rem;color:var(--border);display:none;cursor:pointer;" title="Add to top 10">☆</span></div><div class="check-item" data-index="43"><div class="check-box"></div><span>empathetic</span><span class="star-btn" style="margin-left:auto;font-size:1rem;color:var(--border);display:none;cursor:pointer;" title="Add to top 10">☆</span></div><div class="check-item" data-index="44"><div class="check-box"></div><span>energetic</span><span class="star-btn" style="margin-left:auto;font-size:1rem;color:var(--border);display:none;cursor:pointer;" title="Add to top 10">☆</span></div><div class="check-item" data-index="45"><div class="check-box"></div><span>enjoy challenges</span><span class="star-btn" style="margin-left:auto;font-size:1rem;color:var(--border);display:none;cursor:pointer;" title="Add to top 10">☆</span></div><div class="check-item" data-index="46"><div class="check-box"></div><span>enthusiastic</span><span class="star-btn" style="margin-left:auto;font-size:1rem;color:var(--border);display:none;cursor:pointer;" title="Add to top 10">☆</span></div><div class="check-item" data-index="47"><div class="check-box"></div><span>entrepreneurial</span><span class="star-btn" style="margin-left:auto;font-size:1rem;color:var(--border);display:none;cursor:pointer;" title="Add to top 10">☆</span></div><div class="check-item" data-index="48"><div class="check-box"></div><span>ethical</span><span class="star-btn" style="margin-left:auto;font-size:1rem;color:var(--border);display:none;cursor:pointer;" title="Add to top 10">☆</span></div><div class="check-item" data-index="49"><div class="check-box"></div><span>fair</span><span class="star-btn" style="margin-left:auto;font-size:1rem;color:var(--border);display:none;cursor:pointer;" title="Add to top 10">☆</span></div><div class="check-item" data-index="50"><div class="check-box"></div><span>flexible</span><span class="star-btn" style="margin-left:auto;font-size:1rem;color:var(--border);display:none;cursor:pointer;" title="Add to top 10">☆</span></div><div class="check-item" data-index="51"><div class="check-box"></div><span>friendly</span><span class="star-btn" style="margin-left:auto;font-size:1rem;color:var(--border);display:none;cursor:pointer;" title="Add to top 10">☆</span></div><div class="check-item" data-index="52"><div class="check-box"></div><span>generous</span><span class="star-btn" style="margin-left:auto;font-size:1rem;color:var(--border);display:none;cursor:pointer;" title="Add to top 10">☆</span></div><div class="check-item" data-index="53"><div class="check-box"></div><span>goal-oriented</span><span class="star-btn" style="margin-left:auto;font-size:1rem;color:var(--border);display:none;cursor:pointer;" title="Add to top 10">☆</span></div><div class="check-item" data-index="54"><div class="check-box"></div><span>hard-working</span><span class="star-btn" style="margin-left:auto;font-size:1rem;color:var(--border);display:none;cursor:pointer;" title="Add to top 10">☆</span></div><div class="check-item" data-index="55"><div class="check-box"></div><span>helpful</span><span class="star-btn" style="margin-left:auto;font-size:1rem;color:var(--border);display:none;cursor:pointer;" title="Add to top 10">☆</span></div><div class="check-item" data-index="56"><div class="check-box"></div><span>honest</span><span class="star-btn" style="margin-left:auto;font-size:1rem;color:var(--border);display:none;cursor:pointer;" title="Add to top 10">☆</span></div><div class="check-item" data-index="57"><div class="check-box"></div><span>imaginative</span><span class="star-btn" style="margin-left:auto;font-size:1rem;color:var(--border);display:none;cursor:pointer;" title="Add to top 10">☆</span></div><div class="check-item" data-index="58"><div class="check-box"></div><span>inclusive</span><span class="star-btn" style="margin-left:auto;font-size:1rem;color:var(--border);display:none;cursor:pointer;" title="Add to top 10">☆</span></div><div class="check-item" data-index="59"><div class="check-box"></div><span>independent</span><span class="star-btn" style="margin-left:auto;font-size:1rem;color:var(--border);display:none;cursor:pointer;" title="Add to top 10">☆</span></div><div class="check-item" data-index="60"><div class="check-box"></div><span>industrious</span><span class="star-btn" style="margin-left:auto;font-size:1rem;color:var(--border);display:none;cursor:pointer;" title="Add to top 10">☆</span></div><div class="check-item" data-index="61"><div class="check-box"></div><span>influential</span><span class="star-btn" style="margin-left:auto;font-size:1rem;color:var(--border);display:none;cursor:pointer;" title="Add to top 10">☆</span></div><div class="check-item" data-index="62"><div class="check-box"></div><span>innovative</span><span class="star-btn" style="margin-left:auto;font-size:1rem;color:var(--border);display:none;cursor:pointer;" title="Add to top 10">☆</span></div><div class="check-item" data-index="63"><div class="check-box"></div><span>intelligent</span><span class="star-btn" style="margin-left:auto;font-size:1rem;color:var(--border);display:none;cursor:pointer;" title="Add to top 10">☆</span></div><div class="check-item" data-index="64"><div class="check-box"></div><span>intuitive</span><span class="star-btn" style="margin-left:auto;font-size:1rem;color:var(--border);display:none;cursor:pointer;" title="Add to top 10">☆</span></div><div class="check-item" data-index="65"><div class="check-box"></div><span>inquisitive</span><span class="star-btn" style="margin-left:auto;font-size:1rem;color:var(--border);display:none;cursor:pointer;" title="Add to top 10">☆</span></div><div class="check-item" data-index="66"><div class="check-box"></div><span>level-headed</span><span class="star-btn" style="margin-left:auto;font-size:1rem;color:var(--border);display:none;cursor:pointer;" title="Add to top 10">☆</span></div><div class="check-item" data-index="67"><div class="check-box"></div><span>loyal</span><span class="star-btn" style="margin-left:auto;font-size:1rem;color:var(--border);display:none;cursor:pointer;" title="Add to top 10">☆</span></div><div class="check-item" data-index="68"><div class="check-box"></div><span>mature</span><span class="star-btn" style="margin-left:auto;font-size:1rem;color:var(--border);display:none;cursor:pointer;" title="Add to top 10">☆</span></div><div class="check-item" data-index="69"><div class="check-box"></div><span>methodical</span><span class="star-btn" style="margin-left:auto;font-size:1rem;color:var(--border);display:none;cursor:pointer;" title="Add to top 10">☆</span></div><div class="check-item" data-index="70"><div class="check-box"></div><span>observant</span><span class="star-btn" style="margin-left:auto;font-size:1rem;color:var(--border);display:none;cursor:pointer;" title="Add to top 10">☆</span></div><div class="check-item" data-index="71"><div class="check-box"></div><span>open-minded</span><span class="star-btn" style="margin-left:auto;font-size:1rem;color:var(--border);display:none;cursor:pointer;" title="Add to top 10">☆</span></div><div class="check-item" data-index="72"><div class="check-box"></div><span>optimistic</span><span class="star-btn" style="margin-left:auto;font-size:1rem;color:var(--border);display:none;cursor:pointer;" title="Add to top 10">☆</span></div><div class="check-item" data-index="73"><div class="check-box"></div><span>organized</span><span class="star-btn" style="margin-left:auto;font-size:1rem;color:var(--border);display:none;cursor:pointer;" title="Add to top 10">☆</span></div><div class="check-item" data-index="74"><div class="check-box"></div><span>outgoing</span><span class="star-btn" style="margin-left:auto;font-size:1rem;color:var(--border);display:none;cursor:pointer;" title="Add to top 10">☆</span></div><div class="check-item" data-index="75"><div class="check-box"></div><span>passionate</span><span class="star-btn" style="margin-left:auto;font-size:1rem;color:var(--border);display:none;cursor:pointer;" title="Add to top 10">☆</span></div><div class="check-item" data-index="76"><div class="check-box"></div><span>patient</span><span class="star-btn" style="margin-left:auto;font-size:1rem;color:var(--border);display:none;cursor:pointer;" title="Add to top 10">☆</span></div><div class="check-item" data-index="77"><div class="check-box"></div><span>perceptive</span><span class="star-btn" style="margin-left:auto;font-size:1rem;color:var(--border);display:none;cursor:pointer;" title="Add to top 10">☆</span></div><div class="check-item" data-index="78"><div class="check-box"></div><span>persistent</span><span class="star-btn" style="margin-left:auto;font-size:1rem;color:var(--border);display:none;cursor:pointer;" title="Add to top 10">☆</span></div><div class="check-item" data-index="79"><div class="check-box"></div><span>personable</span><span class="star-btn" style="margin-left:auto;font-size:1rem;color:var(--border);display:none;cursor:pointer;" title="Add to top 10">☆</span></div><div class="check-item" data-index="80"><div class="check-box"></div><span>persuasive</span><span class="star-btn" style="margin-left:auto;font-size:1rem;color:var(--border);display:none;cursor:pointer;" title="Add to top 10">☆</span></div><div class="check-item" data-index="81"><div class="check-box"></div><span>pleasant</span><span class="star-btn" style="margin-left:auto;font-size:1rem;color:var(--border);display:none;cursor:pointer;" title="Add to top 10">☆</span></div><div class="check-item" data-index="82"><div class="check-box"></div><span>poised</span><span class="star-btn" style="margin-left:auto;font-size:1rem;color:var(--border);display:none;cursor:pointer;" title="Add to top 10">☆</span></div><div class="check-item" data-index="83"><div class="check-box"></div><span>polite</span><span class="star-btn" style="margin-left:auto;font-size:1rem;color:var(--border);display:none;cursor:pointer;" title="Add to top 10">☆</span></div><div class="check-item" data-index="84"><div class="check-box"></div><span>possess a good sense of humor</span><span class="star-btn" style="margin-left:auto;font-size:1rem;color:var(--border);display:none;cursor:pointer;" title="Add to top 10">☆</span></div><div class="check-item" data-index="85"><div class="check-box"></div><span>possess common sense</span><span class="star-btn" style="margin-left:auto;font-size:1rem;color:var(--border);display:none;cursor:pointer;" title="Add to top 10">☆</span></div><div class="check-item" data-index="86"><div class="check-box"></div><span>practical</span><span class="star-btn" style="margin-left:auto;font-size:1rem;color:var(--border);display:none;cursor:pointer;" title="Add to top 10">☆</span></div><div class="check-item" data-index="87"><div class="check-box"></div><span>precise</span><span class="star-btn" style="margin-left:auto;font-size:1rem;color:var(--border);display:none;cursor:pointer;" title="Add to top 10">☆</span></div><div class="check-item" data-index="88"><div class="check-box"></div><span>process-oriented</span><span class="star-btn" style="margin-left:auto;font-size:1rem;color:var(--border);display:none;cursor:pointer;" title="Add to top 10">☆</span></div><div class="check-item" data-index="89"><div class="check-box"></div><span>productive</span><span class="star-btn" style="margin-left:auto;font-size:1rem;color:var(--border);display:none;cursor:pointer;" title="Add to top 10">☆</span></div><div class="check-item" data-index="90"><div class="check-box"></div><span>professional</span><span class="star-btn" style="margin-left:auto;font-size:1rem;color:var(--border);display:none;cursor:pointer;" title="Add to top 10">☆</span></div><div class="check-item" data-index="91"><div class="check-box"></div><span>punctual</span><span class="star-btn" style="margin-left:auto;font-size:1rem;color:var(--border);display:none;cursor:pointer;" title="Add to top 10">☆</span></div><div class="check-item" data-index="92"><div class="check-box"></div><span>a quick learner</span><span class="star-btn" style="margin-left:auto;font-size:1rem;color:var(--border);display:none;cursor:pointer;" title="Add to top 10">☆</span></div><div class="check-item" data-index="93"><div class="check-box"></div><span>rational</span><span class="star-btn" style="margin-left:auto;font-size:1rem;color:var(--border);display:none;cursor:pointer;" title="Add to top 10">☆</span></div><div class="check-item" data-index="94"><div class="check-box"></div><span>reliable</span><span class="star-btn" style="margin-left:auto;font-size:1rem;color:var(--border);display:none;cursor:pointer;" title="Add to top 10">☆</span></div><div class="check-item" data-index="95"><div class="check-box"></div><span>resourceful</span><span class="star-btn" style="margin-left:auto;font-size:1rem;color:var(--border);display:none;cursor:pointer;" title="Add to top 10">☆</span></div><div class="check-item" data-index="96"><div class="check-box"></div><span>realistic</span><span class="star-btn" style="margin-left:auto;font-size:1rem;color:var(--border);display:none;cursor:pointer;" title="Add to top 10">☆</span></div><div class="check-item" data-index="97"><div class="check-box"></div><span>resilient</span><span class="star-btn" style="margin-left:auto;font-size:1rem;color:var(--border);display:none;cursor:pointer;" title="Add to top 10">☆</span></div><div class="check-item" data-index="98"><div class="check-box"></div><span>respectful</span><span class="star-btn" style="margin-left:auto;font-size:1rem;color:var(--border);display:none;cursor:pointer;" title="Add to top 10">☆</span></div><div class="check-item" data-index="99"><div class="check-box"></div><span>results-oriented</span><span class="star-btn" style="margin-left:auto;font-size:1rem;color:var(--border);display:none;cursor:pointer;" title="Add to top 10">☆</span></div><div class="check-item" data-index="100"><div class="check-box"></div><span>responsible</span><span class="star-btn" style="margin-left:auto;font-size:1rem;color:var(--border);display:none;cursor:pointer;" title="Add to top 10">☆</span></div><div class="check-item" data-index="101"><div class="check-box"></div><span>responsive</span><span class="star-btn" style="margin-left:auto;font-size:1rem;color:var(--border);display:none;cursor:pointer;" title="Add to top 10">☆</span></div><div class="check-item" data-index="102"><div class="check-box"></div><span>seek challenges</span><span class="star-btn" style="margin-left:auto;font-size:1rem;color:var(--border);display:none;cursor:pointer;" title="Add to top 10">☆</span></div><div class="check-item" data-index="103"><div class="check-box"></div><span>self-aware</span><span class="star-btn" style="margin-left:auto;font-size:1rem;color:var(--border);display:none;cursor:pointer;" title="Add to top 10">☆</span></div><div class="check-item" data-index="104"><div class="check-box"></div><span>self-motivated</span><span class="star-btn" style="margin-left:auto;font-size:1rem;color:var(--border);display:none;cursor:pointer;" title="Add to top 10">☆</span></div><div class="check-item" data-index="105"><div class="check-box"></div><span>self-sufficient</span><span class="star-btn" style="margin-left:auto;font-size:1rem;color:var(--border);display:none;cursor:pointer;" title="Add to top 10">☆</span></div><div class="check-item" data-index="106"><div class="check-box"></div><span>self-reliant</span><span class="star-btn" style="margin-left:auto;font-size:1rem;color:var(--border);display:none;cursor:pointer;" title="Add to top 10">☆</span></div><div class="check-item" data-index="107"><div class="check-box"></div><span>sincere</span><span class="star-btn" style="margin-left:auto;font-size:1rem;color:var(--border);display:none;cursor:pointer;" title="Add to top 10">☆</span></div><div class="check-item" data-index="108"><div class="check-box"></div><span>spontaneous</span><span class="star-btn" style="margin-left:auto;font-size:1rem;color:var(--border);display:none;cursor:pointer;" title="Add to top 10">☆</span></div><div class="check-item" data-index="109"><div class="check-box"></div><span>tactful</span><span class="star-btn" style="margin-left:auto;font-size:1rem;color:var(--border);display:none;cursor:pointer;" title="Add to top 10">☆</span></div><div class="check-item" data-index="110"><div class="check-box"></div><span>take direction well</span><span class="star-btn" style="margin-left:auto;font-size:1rem;color:var(--border);display:none;cursor:pointer;" title="Add to top 10">☆</span></div><div class="check-item" data-index="111"><div class="check-box"></div><span>take initiative</span><span class="star-btn" style="margin-left:auto;font-size:1rem;color:var(--border);display:none;cursor:pointer;" title="Add to top 10">☆</span></div><div class="check-item" data-index="112"><div class="check-box"></div><span>team-oriented</span><span class="star-btn" style="margin-left:auto;font-size:1rem;color:var(--border);display:none;cursor:pointer;" title="Add to top 10">☆</span></div><div class="check-item" data-index="113"><div class="check-box"></div><span>tenacious</span><span class="star-btn" style="margin-left:auto;font-size:1rem;color:var(--border);display:none;cursor:pointer;" title="Add to top 10">☆</span></div><div class="check-item" data-index="114"><div class="check-box"></div><span>thoughtful</span><span class="star-btn" style="margin-left:auto;font-size:1rem;color:var(--border);display:none;cursor:pointer;" title="Add to top 10">☆</span></div><div class="check-item" data-index="115"><div class="check-box"></div><span>thorough</span><span class="star-btn" style="margin-left:auto;font-size:1rem;color:var(--border);display:none;cursor:pointer;" title="Add to top 10">☆</span></div><div class="check-item" data-index="116"><div class="check-box"></div><span>tolerant</span><span class="star-btn" style="margin-left:auto;font-size:1rem;color:var(--border);display:none;cursor:pointer;" title="Add to top 10">☆</span></div><div class="check-item" data-index="117"><div class="check-box"></div><span>trustworthy</span><span class="star-btn" style="margin-left:auto;font-size:1rem;color:var(--border);display:none;cursor:pointer;" title="Add to top 10">☆</span></div><div class="check-item" data-index="118"><div class="check-box"></div><span>values-oriented</span><span class="star-btn" style="margin-left:auto;font-size:1rem;color:var(--border);display:none;cursor:pointer;" title="Add to top 10">☆</span></div><div class="check-item" data-index="119"><div class="check-box"></div><span>versatile</span><span class="star-btn" style="margin-left:auto;font-size:1rem;color:var(--border);display:none;cursor:pointer;" title="Add to top 10">☆</span></div><div class="check-item" data-index="120"><div class="check-box"></div><span>visionary</span><span class="star-btn" style="margin-left:auto;font-size:1rem;color:var(--border);display:none;cursor:pointer;" title="Add to top 10">☆</span></div><div class="check-item" data-index="121"><div class="check-box"></div><span>willing to take risks</span><span class="star-btn" style="margin-left:auto;font-size:1rem;color:var(--border);display:none;cursor:pointer;" title="Add to top 10">☆</span></div></div>
+
+    <hr class="section-divider">
+
+    <h2>Step 3 — Rank your top 10</h2>
+    <p>List your starred qualities in order from most to least descriptive of you. Then use these as a launching pad for the reflection questions below.</p>
+    <div style="display: grid; grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); gap: 0.5rem; margin-bottom: 2rem;" id="rank-grid">
+      <script>
+        for (let r = 1; r <= 10; r++) {
+          document.write(`<div style="display:flex;align-items:center;gap:0.5rem;"><span style="font-size:0.8rem;font-weight:600;color:var(--terracotta);min-width:22px;">${r}.</span><input type="text" placeholder="Quality #${r}" style="flex:1;padding:0.4rem 0.75rem;border:1px solid var(--border);border-radius:8px;font-size:0.88rem;color:var(--ink);background:var(--warm-white);font-family:var(--font-body);"></div>`);
+        }
+      </script><div style="display:flex;align-items:center;gap:0.5rem;"><span style="font-size:0.8rem;font-weight:600;color:var(--terracotta);min-width:22px;">1.</span><input type="text" placeholder="Quality #1" style="flex:1;padding:0.4rem 0.75rem;border:1px solid var(--border);border-radius:8px;font-size:0.88rem;color:var(--ink);background:var(--warm-white);font-family:var(--font-body);"></div><div style="display:flex;align-items:center;gap:0.5rem;"><span style="font-size:0.8rem;font-weight:600;color:var(--terracotta);min-width:22px;">2.</span><input type="text" placeholder="Quality #2" style="flex:1;padding:0.4rem 0.75rem;border:1px solid var(--border);border-radius:8px;font-size:0.88rem;color:var(--ink);background:var(--warm-white);font-family:var(--font-body);"></div><div style="display:flex;align-items:center;gap:0.5rem;"><span style="font-size:0.8rem;font-weight:600;color:var(--terracotta);min-width:22px;">3.</span><input type="text" placeholder="Quality #3" style="flex:1;padding:0.4rem 0.75rem;border:1px solid var(--border);border-radius:8px;font-size:0.88rem;color:var(--ink);background:var(--warm-white);font-family:var(--font-body);"></div><div style="display:flex;align-items:center;gap:0.5rem;"><span style="font-size:0.8rem;font-weight:600;color:var(--terracotta);min-width:22px;">4.</span><input type="text" placeholder="Quality #4" style="flex:1;padding:0.4rem 0.75rem;border:1px solid var(--border);border-radius:8px;font-size:0.88rem;color:var(--ink);background:var(--warm-white);font-family:var(--font-body);"></div><div style="display:flex;align-items:center;gap:0.5rem;"><span style="font-size:0.8rem;font-weight:600;color:var(--terracotta);min-width:22px;">5.</span><input type="text" placeholder="Quality #5" style="flex:1;padding:0.4rem 0.75rem;border:1px solid var(--border);border-radius:8px;font-size:0.88rem;color:var(--ink);background:var(--warm-white);font-family:var(--font-body);"></div><div style="display:flex;align-items:center;gap:0.5rem;"><span style="font-size:0.8rem;font-weight:600;color:var(--terracotta);min-width:22px;">6.</span><input type="text" placeholder="Quality #6" style="flex:1;padding:0.4rem 0.75rem;border:1px solid var(--border);border-radius:8px;font-size:0.88rem;color:var(--ink);background:var(--warm-white);font-family:var(--font-body);"></div><div style="display:flex;align-items:center;gap:0.5rem;"><span style="font-size:0.8rem;font-weight:600;color:var(--terracotta);min-width:22px;">7.</span><input type="text" placeholder="Quality #7" style="flex:1;padding:0.4rem 0.75rem;border:1px solid var(--border);border-radius:8px;font-size:0.88rem;color:var(--ink);background:var(--warm-white);font-family:var(--font-body);"></div><div style="display:flex;align-items:center;gap:0.5rem;"><span style="font-size:0.8rem;font-weight:600;color:var(--terracotta);min-width:22px;">8.</span><input type="text" placeholder="Quality #8" style="flex:1;padding:0.4rem 0.75rem;border:1px solid var(--border);border-radius:8px;font-size:0.88rem;color:var(--ink);background:var(--warm-white);font-family:var(--font-body);"></div><div style="display:flex;align-items:center;gap:0.5rem;"><span style="font-size:0.8rem;font-weight:600;color:var(--terracotta);min-width:22px;">9.</span><input type="text" placeholder="Quality #9" style="flex:1;padding:0.4rem 0.75rem;border:1px solid var(--border);border-radius:8px;font-size:0.88rem;color:var(--ink);background:var(--warm-white);font-family:var(--font-body);"></div><div style="display:flex;align-items:center;gap:0.5rem;"><span style="font-size:0.8rem;font-weight:600;color:var(--terracotta);min-width:22px;">10.</span><input type="text" placeholder="Quality #10" style="flex:1;padding:0.4rem 0.75rem;border:1px solid var(--border);border-radius:8px;font-size:0.88rem;color:var(--ink);background:var(--warm-white);font-family:var(--font-body);"></div>
+    </div>
+
+    <hr class="section-divider">
+
+    <h2>Reflection questions</h2>
+    <p>Take your time with each of these. The goal is to dig up specific memories and moments — not to write a perfect essay yet.</p>
+
+    <div style="margin-bottom: 1.5rem;">
+      <div class="card card-accent">
+        <h3>What do you care most about in the world?</h3>
+        <p>Think broadly — ideas, people, places, causes, creative work, a craft. What would you talk about for hours without getting tired?</p>
+      </div>
+      <textarea class="write-area" placeholder="Write freely here..."></textarea>
+    </div>
+
+    <div style="margin-bottom: 1.5rem;">
+      <div class="card card-forest">
+        <h3>What experience has shaped who you are?</h3>
+        <p>It doesn't have to be dramatic. Small moments can reveal just as much as big ones.</p>
+      </div>
+      <textarea class="write-area" placeholder="Write freely here..."></textarea>
+    </div>
+
+    <div style="margin-bottom: 1.5rem;">
+      <div class="card card-gold">
+        <h3>What do your closest friends or family know about you that admissions officers don't?</h3>
+        <p>The sides of you that don't appear on a transcript — what are they?</p>
+      </div>
+      <textarea class="write-area" placeholder="Write freely here..."></textarea>
+    </div>
+
+    <div style="margin-bottom: 1.5rem;">
+      <div class="card card-accent">
+        <h3>How have you been a leader?</h3>
+        <p>Leadership isn't always a title. Think of times you've guided, influenced, or inspired someone — formally or informally.</p>
+      </div>
+      <textarea class="write-area" placeholder="Write freely here..."></textarea>
+    </div>
+
+    <div class="highlight">
+      <p>Look back at your top 10 qualities. Which of your answers above connect to those traits? That intersection is gold for your essay.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ===== BRAINSTORM ===== -->
+<section id="brainstorm">
+  <div class="container">
+    <div class="section-label">Activity 2 · Brainstorming</div>
+    <h1>Find your story.</h1>
+    <p style="font-size: 1.05rem; color: var(--ink-muted); margin-bottom: 2rem;">Great essays start with specific, concrete moments. Use these timed prompts to uncover the stories that only you can tell. Set a timer and just <em>write</em> — don't edit, don't second-guess.</p>
+
+    <div class="tab-row">
+      <button class="tab-btn active" onclick="switchTab(&#39;place&#39;,this)">A place you love</button>
+      <button class="tab-btn" onclick="switchTab(&#39;memory&#39;,this)">A good memory</button>
+      <button class="tab-btn" onclick="switchTab(&#39;conquered&#39;,this)">Something conquered</button>
+      <button class="tab-btn" onclick="switchTab(&#39;love&#39;,this)">Something you love</button>
+      <button class="tab-btn" onclick="switchTab(&#39;firstlines&#39;,this)">First lines</button>
+    </div>
+
+    <div id="tab-place" class="tab-panel active">
+      <div class="activity-header">
+        <div class="activity-number">1</div>
+        <div>
+          <h2 style="margin: 0;">A place you love to go</h2>
+          <p style="margin: 0; font-size: 0.9rem;">3 minutes · write without stopping</p>
+        </div>
+      </div>
+      <div class="card" style="margin-bottom: 1rem;">
+        <p style="margin-bottom: 0.5rem; font-weight: 500; color: var(--ink);">Think in sensory details:</p>
+        <ul style="list-style: disc; padding-left: 1.25rem; color: var(--ink-muted); font-size: 0.92rem;">
+          <li>What does it look like?</li>
+          <li>What does it sound like?</li>
+          <li>What does it smell like?</li>
+          <li>What does it make you feel?</li>
+          <li>Why is it one of your favorite places?</li>
+        </ul>
+      </div>
+      <textarea class="write-area" placeholder="Describe your place in vivid detail..."></textarea>
+    </div>
+
+    <div id="tab-memory" class="tab-panel">
+      <div class="activity-header">
+        <div class="activity-number">2</div>
+        <div>
+          <h2 style="margin: 0;">A memory that makes you feel good</h2>
+          <p style="margin: 0; font-size: 0.9rem;">Free write · let the details flow</p>
+        </div>
+      </div>
+      <div class="card" style="margin-bottom: 1rem;">
+        <p>Reach for a specific memory — not a general feeling. Where were you? Who was there? What happened, step by step?</p>
+      </div>
+      <textarea class="write-area" placeholder="Tell the story of this memory..."></textarea>
+    </div>
+
+    <div id="tab-conquered" class="tab-panel">
+      <div class="activity-header">
+        <div class="activity-number">3</div>
+        <div>
+          <h2 style="margin: 0;">Something you have conquered</h2>
+          <p style="margin: 0; font-size: 0.9rem;">Dig into the struggle</p>
+        </div>
+      </div>
+      <div class="card" style="margin-bottom: 1rem;">
+        <p style="margin-bottom: 0.5rem; font-weight: 500; color: var(--ink);">Explore:</p>
+        <ul style="list-style: disc; padding-left: 1.25rem; color: var(--ink-muted); font-size: 0.92rem;">
+          <li>What was the struggle?</li>
+          <li>What did you put in?</li>
+          <li>Was there a pivotal moment?</li>
+          <li>What changed in you?</li>
+        </ul>
+      </div>
+      <textarea class="write-area" placeholder="Tell the story of overcoming..."></textarea>
+    </div>
+
+    <div id="tab-love" class="tab-panel">
+      <div class="activity-header">
+        <div class="activity-number">4</div>
+        <div>
+          <h2 style="margin: 0;">Something you love to do</h2>
+          <p style="margin: 0; font-size: 0.9rem;">(You don't even have to be good at it)</p>
+        </div>
+      </div>
+      <div class="card" style="margin-bottom: 1rem;">
+        <p style="margin-bottom: 0.5rem; font-weight: 500; color: var(--ink);">Get really granular:</p>
+        <ul style="list-style: disc; padding-left: 1.25rem; color: var(--ink-muted); font-size: 0.92rem;">
+          <li>Describe what you do, in detail</li>
+          <li>Are you good at it?</li>
+          <li>How does it make you feel?</li>
+          <li>What does this reveal about who you are?</li>
+        </ul>
+      </div>
+      <textarea class="write-area" placeholder="Describe this activity like someone has never seen it before..."></textarea>
+    </div>
+
+    <div id="tab-firstlines" class="tab-panel">
+      <div class="activity-header">
+        <div class="activity-number">5</div>
+        <div>
+          <h2 style="margin: 0;">First lines exercise</h2>
+          <p style="margin: 0; font-size: 0.9rem;">Hook your reader immediately</p>
+        </div>
+      </div>
+      <div class="card" style="margin-bottom: 1.5rem;">
+        <p>Read these first lines from real college essays. <strong style="color: var(--ink);">Mark the ones you would really want to finish.</strong> Then underneath each one, write some personal qualities you would expect to find in the writer of that essay.</p>
+      </div>
+
+      <div id="firstlines-list"><div style="margin-bottom: 1rem;">
+      <div style="display: flex; align-items: flex-start; gap: 0.85rem; padding: 1rem 1.25rem; background: var(--surface); border: 1px solid var(--border); border-radius: var(--radius); cursor: pointer; transition: border-color 0.15s, background 0.15s;" id="fl-card-0" onclick="toggleFL(0)">
+        <div id="fl-star-0" style="font-size: 1.2rem; flex-shrink: 0; margin-top: 0.1rem; color: var(--border); transition: color 0.15s;" title="Mark this one">☆</div>
+        <div style="flex: 1;">
+          <p style="font-family: var(--font-head); font-style: italic; color: var(--ink); margin-bottom: 0; font-size: 0.97rem; line-height: 1.6;">"Unlike many mathematicians, I live in an irrational world; I feel that my life is defined by a certain amount of irrationalities that bloom too frequently, such as my brief foray in front of 400 people without my pants."</p>
+        </div>
+      </div>
+      <textarea class="write-area" style="border-radius: 0 0 var(--radius) var(--radius); border-top: none; min-height: 70px; font-size: 0.88rem;" placeholder="Qualities you&#39;d expect in this writer..."></textarea>
+    </div><div style="margin-bottom: 1rem;">
+      <div style="display: flex; align-items: flex-start; gap: 0.85rem; padding: 1rem 1.25rem; background: var(--surface); border: 1px solid var(--border); border-radius: var(--radius); cursor: pointer; transition: border-color 0.15s, background 0.15s;" id="fl-card-1" onclick="toggleFL(1)">
+        <div id="fl-star-1" style="font-size: 1.2rem; flex-shrink: 0; margin-top: 0.1rem; color: var(--border); transition: color 0.15s;" title="Mark this one">☆</div>
+        <div style="flex: 1;">
+          <p style="font-family: var(--font-head); font-style: italic; color: var(--ink); margin-bottom: 0; font-size: 0.97rem; line-height: 1.6;">"When I was 8 years old, I shocked my family and a local archaeologist by discovering artifacts dating back almost 3,500 years."</p>
+        </div>
+      </div>
+      <textarea class="write-area" style="border-radius: 0 0 var(--radius) var(--radius); border-top: none; min-height: 70px; font-size: 0.88rem;" placeholder="Qualities you&#39;d expect in this writer..."></textarea>
+    </div><div style="margin-bottom: 1rem;">
+      <div style="display: flex; align-items: flex-start; gap: 0.85rem; padding: 1rem 1.25rem; background: var(--surface); border: 1px solid var(--border); border-radius: var(--radius); cursor: pointer; transition: border-color 0.15s, background 0.15s;" id="fl-card-2" onclick="toggleFL(2)">
+        <div id="fl-star-2" style="font-size: 1.2rem; flex-shrink: 0; margin-top: 0.1rem; color: var(--border); transition: color 0.15s;" title="Mark this one">☆</div>
+        <div style="flex: 1;">
+          <p style="font-family: var(--font-head); font-style: italic; color: var(--ink); margin-bottom: 0; font-size: 0.97rem; line-height: 1.6;">"When I was in eighth grade I couldn't read."</p>
+        </div>
+      </div>
+      <textarea class="write-area" style="border-radius: 0 0 var(--radius) var(--radius); border-top: none; min-height: 70px; font-size: 0.88rem;" placeholder="Qualities you&#39;d expect in this writer..."></textarea>
+    </div><div style="margin-bottom: 1rem;">
+      <div style="display: flex; align-items: flex-start; gap: 0.85rem; padding: 1rem 1.25rem; background: var(--surface); border: 1px solid var(--border); border-radius: var(--radius); cursor: pointer; transition: border-color 0.15s, background 0.15s;" id="fl-card-3" onclick="toggleFL(3)">
+        <div id="fl-star-3" style="font-size: 1.2rem; flex-shrink: 0; margin-top: 0.1rem; color: var(--border); transition: color 0.15s;" title="Mark this one">☆</div>
+        <div style="flex: 1;">
+          <p style="font-family: var(--font-head); font-style: italic; color: var(--ink); margin-bottom: 0; font-size: 0.97rem; line-height: 1.6;">"While traveling through the daily path of life, have you ever stumbled upon a hidden pocket of the universe?"</p>
+        </div>
+      </div>
+      <textarea class="write-area" style="border-radius: 0 0 var(--radius) var(--radius); border-top: none; min-height: 70px; font-size: 0.88rem;" placeholder="Qualities you&#39;d expect in this writer..."></textarea>
+    </div><div style="margin-bottom: 1rem;">
+      <div style="display: flex; align-items: flex-start; gap: 0.85rem; padding: 1rem 1.25rem; background: var(--surface); border: 1px solid var(--border); border-radius: var(--radius); cursor: pointer; transition: border-color 0.15s, background 0.15s;" id="fl-card-4" onclick="toggleFL(4)">
+        <div id="fl-star-4" style="font-size: 1.2rem; flex-shrink: 0; margin-top: 0.1rem; color: var(--border); transition: color 0.15s;" title="Mark this one">☆</div>
+        <div style="flex: 1;">
+          <p style="font-family: var(--font-head); font-style: italic; color: var(--ink); margin-bottom: 0; font-size: 0.97rem; line-height: 1.6;">"The spaghetti burbled and slushed around the pan, and as I stirred it, the noises it gave off began to sound increasingly like bodily functions."</p>
+        </div>
+      </div>
+      <textarea class="write-area" style="border-radius: 0 0 var(--radius) var(--radius); border-top: none; min-height: 70px; font-size: 0.88rem;" placeholder="Qualities you&#39;d expect in this writer..."></textarea>
+    </div><div style="margin-bottom: 1rem;">
+      <div style="display: flex; align-items: flex-start; gap: 0.85rem; padding: 1rem 1.25rem; background: var(--surface); border: 1px solid var(--border); border-radius: var(--radius); cursor: pointer; transition: border-color 0.15s, background 0.15s;" id="fl-card-5" onclick="toggleFL(5)">
+        <div id="fl-star-5" style="font-size: 1.2rem; flex-shrink: 0; margin-top: 0.1rem; color: var(--border); transition: color 0.15s;" title="Mark this one">☆</div>
+        <div style="flex: 1;">
+          <p style="font-family: var(--font-head); font-style: italic; color: var(--ink); margin-bottom: 0; font-size: 0.97rem; line-height: 1.6;">"I had never seen anyone get so excited about mitochondria."</p>
+        </div>
+      </div>
+      <textarea class="write-area" style="border-radius: 0 0 var(--radius) var(--radius); border-top: none; min-height: 70px; font-size: 0.88rem;" placeholder="Qualities you&#39;d expect in this writer..."></textarea>
+    </div><div style="margin-bottom: 1rem;">
+      <div style="display: flex; align-items: flex-start; gap: 0.85rem; padding: 1rem 1.25rem; background: var(--surface); border: 1px solid var(--border); border-radius: var(--radius); cursor: pointer; transition: border-color 0.15s, background 0.15s;" id="fl-card-6" onclick="toggleFL(6)">
+        <div id="fl-star-6" style="font-size: 1.2rem; flex-shrink: 0; margin-top: 0.1rem; color: var(--border); transition: color 0.15s;" title="Mark this one">☆</div>
+        <div style="flex: 1;">
+          <p style="font-family: var(--font-head); font-style: italic; color: var(--ink); margin-bottom: 0; font-size: 0.97rem; line-height: 1.6;">"Cancer tried to defeat me, and it failed."</p>
+        </div>
+      </div>
+      <textarea class="write-area" style="border-radius: 0 0 var(--radius) var(--radius); border-top: none; min-height: 70px; font-size: 0.88rem;" placeholder="Qualities you&#39;d expect in this writer..."></textarea>
+    </div><div style="margin-bottom: 1rem;">
+      <div style="display: flex; align-items: flex-start; gap: 0.85rem; padding: 1rem 1.25rem; background: var(--surface); border: 1px solid var(--border); border-radius: var(--radius); cursor: pointer; transition: border-color 0.15s, background 0.15s;" id="fl-card-7" onclick="toggleFL(7)">
+        <div id="fl-star-7" style="font-size: 1.2rem; flex-shrink: 0; margin-top: 0.1rem; color: var(--border); transition: color 0.15s;" title="Mark this one">☆</div>
+        <div style="flex: 1;">
+          <p style="font-family: var(--font-head); font-style: italic; color: var(--ink); margin-bottom: 0; font-size: 0.97rem; line-height: 1.6;">"I stand on the riverbank surveying this rippled range like some riparian cowboy—instead of chaps, I wear vinyl, thigh-high waders and a lasso of measuring tape and twine is slung over my arm."</p>
+        </div>
+      </div>
+      <textarea class="write-area" style="border-radius: 0 0 var(--radius) var(--radius); border-top: none; min-height: 70px; font-size: 0.88rem;" placeholder="Qualities you&#39;d expect in this writer..."></textarea>
+    </div><div style="margin-bottom: 1rem;">
+      <div style="display: flex; align-items: flex-start; gap: 0.85rem; padding: 1rem 1.25rem; background: var(--surface); border: 1px solid var(--border); border-radius: var(--radius); cursor: pointer; transition: border-color 0.15s, background 0.15s;" id="fl-card-8" onclick="toggleFL(8)">
+        <div id="fl-star-8" style="font-size: 1.2rem; flex-shrink: 0; margin-top: 0.1rem; color: var(--border); transition: color 0.15s;" title="Mark this one">☆</div>
+        <div style="flex: 1;">
+          <p style="font-family: var(--font-head); font-style: italic; color: var(--ink); margin-bottom: 0; font-size: 0.97rem; line-height: 1.6;">"After moving five times by first grade, I believed that your location was like a souvenir you found offered up by the waves: pretty but insignificant."</p>
+        </div>
+      </div>
+      <textarea class="write-area" style="border-radius: 0 0 var(--radius) var(--radius); border-top: none; min-height: 70px; font-size: 0.88rem;" placeholder="Qualities you&#39;d expect in this writer..."></textarea>
+    </div><div style="margin-bottom: 1rem;">
+      <div style="display: flex; align-items: flex-start; gap: 0.85rem; padding: 1rem 1.25rem; background: var(--surface); border: 1px solid var(--border); border-radius: var(--radius); cursor: pointer; transition: border-color 0.15s, background 0.15s;" id="fl-card-9" onclick="toggleFL(9)">
+        <div id="fl-star-9" style="font-size: 1.2rem; flex-shrink: 0; margin-top: 0.1rem; color: var(--border); transition: color 0.15s;" title="Mark this one">☆</div>
+        <div style="flex: 1;">
+          <p style="font-family: var(--font-head); font-style: italic; color: var(--ink); margin-bottom: 0; font-size: 0.97rem; line-height: 1.6;">"Sitting cross-legged on the floor of a Bhimanagar slum dwelling in Bangalore, I ran my fingers across a fresh cut on my forehead."</p>
+        </div>
+      </div>
+      <textarea class="write-area" style="border-radius: 0 0 var(--radius) var(--radius); border-top: none; min-height: 70px; font-size: 0.88rem;" placeholder="Qualities you&#39;d expect in this writer..."></textarea>
+    </div><div style="margin-bottom: 1rem;">
+      <div style="display: flex; align-items: flex-start; gap: 0.85rem; padding: 1rem 1.25rem; background: var(--surface); border: 1px solid var(--border); border-radius: var(--radius); cursor: pointer; transition: border-color 0.15s, background 0.15s;" id="fl-card-10" onclick="toggleFL(10)">
+        <div id="fl-star-10" style="font-size: 1.2rem; flex-shrink: 0; margin-top: 0.1rem; color: var(--border); transition: color 0.15s;" title="Mark this one">☆</div>
+        <div style="flex: 1;">
+          <p style="font-family: var(--font-head); font-style: italic; color: var(--ink); margin-bottom: 0; font-size: 0.97rem; line-height: 1.6;">"Good Grief! You never would have guessed that an unassuming meek lovable loser like Charlie Brown would have an influence on anyone; but indeed he has."</p>
+        </div>
+      </div>
+      <textarea class="write-area" style="border-radius: 0 0 var(--radius) var(--radius); border-top: none; min-height: 70px; font-size: 0.88rem;" placeholder="Qualities you&#39;d expect in this writer..."></textarea>
+    </div><div style="margin-bottom: 1rem;">
+      <div style="display: flex; align-items: flex-start; gap: 0.85rem; padding: 1rem 1.25rem; background: var(--surface); border: 1px solid var(--border); border-radius: var(--radius); cursor: pointer; transition: border-color 0.15s, background 0.15s;" id="fl-card-11" onclick="toggleFL(11)">
+        <div id="fl-star-11" style="font-size: 1.2rem; flex-shrink: 0; margin-top: 0.1rem; color: var(--border); transition: color 0.15s;" title="Mark this one">☆</div>
+        <div style="flex: 1;">
+          <p style="font-family: var(--font-head); font-style: italic; color: var(--ink); margin-bottom: 0; font-size: 0.97rem; line-height: 1.6;">"Some fathers might disapprove of their children handling noxious chemicals in the garage."</p>
+        </div>
+      </div>
+      <textarea class="write-area" style="border-radius: 0 0 var(--radius) var(--radius); border-top: none; min-height: 70px; font-size: 0.88rem;" placeholder="Qualities you&#39;d expect in this writer..."></textarea>
+    </div><div style="margin-bottom: 1rem;">
+      <div style="display: flex; align-items: flex-start; gap: 0.85rem; padding: 1rem 1.25rem; background: var(--surface); border: 1px solid var(--border); border-radius: var(--radius); cursor: pointer; transition: border-color 0.15s, background 0.15s;" id="fl-card-12" onclick="toggleFL(12)">
+        <div id="fl-star-12" style="font-size: 1.2rem; flex-shrink: 0; margin-top: 0.1rem; color: var(--border); transition: color 0.15s;" title="Mark this one">☆</div>
+        <div style="flex: 1;">
+          <p style="font-family: var(--font-head); font-style: italic; color: var(--ink); margin-bottom: 0; font-size: 0.97rem; line-height: 1.6;">"I was paralyzed from the waist down. I would try to move my leg or even shift an ankle but I never got a response. This was the first time thoughts of death ever crossed my mind."</p>
+        </div>
+      </div>
+      <textarea class="write-area" style="border-radius: 0 0 var(--radius) var(--radius); border-top: none; min-height: 70px; font-size: 0.88rem;" placeholder="Qualities you&#39;d expect in this writer..."></textarea>
+    </div><div style="margin-bottom: 1rem;">
+      <div style="display: flex; align-items: flex-start; gap: 0.85rem; padding: 1rem 1.25rem; background: var(--surface); border: 1px solid var(--border); border-radius: var(--radius); cursor: pointer; transition: border-color 0.15s, background 0.15s;" id="fl-card-13" onclick="toggleFL(13)">
+        <div id="fl-star-13" style="font-size: 1.2rem; flex-shrink: 0; margin-top: 0.1rem; color: var(--border); transition: color 0.15s;" title="Mark this one">☆</div>
+        <div style="flex: 1;">
+          <p style="font-family: var(--font-head); font-style: italic; color: var(--ink); margin-bottom: 0; font-size: 0.97rem; line-height: 1.6;">"As an Indian-American, I am forever bound to the hyphen."</p>
+        </div>
+      </div>
+      <textarea class="write-area" style="border-radius: 0 0 var(--radius) var(--radius); border-top: none; min-height: 70px; font-size: 0.88rem;" placeholder="Qualities you&#39;d expect in this writer..."></textarea>
+    </div><div style="margin-bottom: 1rem;">
+      <div style="display: flex; align-items: flex-start; gap: 0.85rem; padding: 1rem 1.25rem; background: var(--surface); border: 1px solid var(--border); border-radius: var(--radius); cursor: pointer; transition: border-color 0.15s, background 0.15s;" id="fl-card-14" onclick="toggleFL(14)">
+        <div id="fl-star-14" style="font-size: 1.2rem; flex-shrink: 0; margin-top: 0.1rem; color: var(--border); transition: color 0.15s;" title="Mark this one">☆</div>
+        <div style="flex: 1;">
+          <p style="font-family: var(--font-head); font-style: italic; color: var(--ink); margin-bottom: 0; font-size: 0.97rem; line-height: 1.6;">"Journey to Gulu's outskirts and you will uncover the scene where education was raped 11 years ago; some Ugandan teens also lost their innocence in exchange for their lives."</p>
+        </div>
+      </div>
+      <textarea class="write-area" style="border-radius: 0 0 var(--radius) var(--radius); border-top: none; min-height: 70px; font-size: 0.88rem;" placeholder="Qualities you&#39;d expect in this writer..."></textarea>
+    </div><div style="margin-bottom: 1rem;">
+      <div style="display: flex; align-items: flex-start; gap: 0.85rem; padding: 1rem 1.25rem; background: var(--surface); border: 1px solid var(--border); border-radius: var(--radius); cursor: pointer; transition: border-color 0.15s, background 0.15s;" id="fl-card-15" onclick="toggleFL(15)">
+        <div id="fl-star-15" style="font-size: 1.2rem; flex-shrink: 0; margin-top: 0.1rem; color: var(--border); transition: color 0.15s;" title="Mark this one">☆</div>
+        <div style="flex: 1;">
+          <p style="font-family: var(--font-head); font-style: italic; color: var(--ink); margin-bottom: 0; font-size: 0.97rem; line-height: 1.6;">"I have been surfing Lake Michigan since I was 3 years old."</p>
+        </div>
+      </div>
+      <textarea class="write-area" style="border-radius: 0 0 var(--radius) var(--radius); border-top: none; min-height: 70px; font-size: 0.88rem;" placeholder="Qualities you&#39;d expect in this writer..."></textarea>
+    </div><div style="margin-bottom: 1rem;">
+      <div style="display: flex; align-items: flex-start; gap: 0.85rem; padding: 1rem 1.25rem; background: var(--surface); border: 1px solid var(--border); border-radius: var(--radius); cursor: pointer; transition: border-color 0.15s, background 0.15s;" id="fl-card-16" onclick="toggleFL(16)">
+        <div id="fl-star-16" style="font-size: 1.2rem; flex-shrink: 0; margin-top: 0.1rem; color: var(--border); transition: color 0.15s;" title="Mark this one">☆</div>
+        <div style="flex: 1;">
+          <p style="font-family: var(--font-head); font-style: italic; color: var(--ink); margin-bottom: 0; font-size: 0.97rem; line-height: 1.6;">"I change my name each time I place an order at Starbucks."</p>
+        </div>
+      </div>
+      <textarea class="write-area" style="border-radius: 0 0 var(--radius) var(--radius); border-top: none; min-height: 70px; font-size: 0.88rem;" placeholder="Qualities you&#39;d expect in this writer..."></textarea>
+    </div></div>
+
+      <hr class="section-divider">
+      <h3 style="margin-bottom: 0.5rem;">Your notes</h3>
+      <p style="font-size: 0.9rem; color: var(--ink-faint);">Which lines stood out most, and why? What made them compelling?</p>
+      <textarea class="write-area" placeholder="Write your reflections here..."></textarea>
+    </div>
+
+  </div>
+</section>
+
+<!-- ===== DRAFT ===== -->
+<section id="draft">
+  <div class="container">
+    <div class="section-label">Activity 3 · Drafting</div>
+    <h1>Get it on the page.</h1>
+    <p style="font-size: 1.05rem; color: var(--ink-muted); margin-bottom: 2rem;">Good essays are <em>rewritten</em>, not just written. Here are two critical skills that will elevate your draft from ordinary to memorable.</p>
+
+    <div class="tab-row">
+      <button class="tab-btn active" onclick="switchDraftTab(&#39;cliches&#39;,this)">Cutting clichés</button>
+      <button class="tab-btn" onclick="switchDraftTab(&#39;arc&#39;,this)">Narrative arc</button>
+      <button class="tab-btn" onclick="switchDraftTab(&#39;inout&#39;,this)">In &amp; out</button>
+      <button class="tab-btn" onclick="switchDraftTab(&#39;samples&#39;,this)">Sample analysis</button>
+    </div>
+
+    <div id="dtab-cliches" class="tab-panel active">
+      <h2>That's So Cliché!</h2>
+      <div class="card" style="margin-bottom: 1.25rem;">
+        <p>Clichés are phrases that have been overused so much they've lost all originality and impact. In college essays, they're a sign of <strong style="color: var(--ink);">lazy writing</strong> — and admissions officers notice.</p>
+      </div>
+
+      <h3 style="margin-bottom: 0.75rem;">Finish these phrases (and then never use them in your essay):</h3>
+      <div class="cliche-box">
+        <ul style="list-style: none; display: grid; grid-template-columns: 1fr 1fr; gap: 0.5rem;">
+          <li><span class="cliche-phrase">"The straw that broke..."</span></li>
+          <li><span class="cliche-phrase">"Don't cry over..."</span></li>
+          <li><span class="cliche-phrase">"I like to think outside..."</span></li>
+          <li><span class="cliche-phrase">"Don't put all your eggs..."</span></li>
+          <li><span class="cliche-phrase">"Kill two birds..."</span></li>
+          <li><span class="cliche-phrase">"Like finding a needle..."</span></li>
+        </ul>
+      </div>
+
+      <h3 style="margin: 1.5rem 0 0.75rem;">A real example of cliché overload:</h3>
+      <div class="card" style="border-left: 3px solid var(--yellow); border-radius: 0 var(--radius) var(--radius) 0; background: var(--yellow-dim); margin-bottom: 1.5rem;">
+        <p style="font-style: italic; color: var(--ink-muted);">"When it comes to school activities, I prefer to be a big fish in a little pond. Whether I am promoting events for Online Gaming Club or leading a cake decorating class in Baking Club, I am constantly working to <strong>raise the bar</strong> and <strong>make my mark</strong>. At the <strong>end of the day</strong>, I always give <strong>110%</strong> in order to set a good example for younger members about <strong>living life to the fullest</strong>."</p>
+        <p style="font-size: 0.85rem; color: var(--ink-faint); margin-top: 0.5rem; margin-bottom: 0;">Bolded phrases are clichés. Can you count them all?</p>
+      </div>
+
+      <h3 style="margin-bottom: 0.75rem;">How to fix a cliché:</h3>
+      <ol class="step-list">
+        <li><p>Scan your draft and highlight any overused phrases you find.</p></li>
+        <li><p>Ask yourself: <em>what am I actually trying to say here?</em></p></li>
+        <li><p>Rewrite it in your own specific words — the more concrete and personal, the better.</p></li>
+      </ol>
+
+      <p style="font-size: 0.9rem; color: var(--ink-faint);">Paste a paragraph from your draft and try rewriting it below to remove any clichés:</p>
+      <textarea class="write-area" placeholder="Paste a paragraph here and rewrite it without any clichés..."></textarea>
+    </div>
+
+    <div id="dtab-arc" class="tab-panel">
+      <h2>One way forward: An Arc</h2>
+      <div class="card card-accent" style="margin-bottom: 1.5rem;">
+        <p>A narrative arc gives your essay a shape — a beginning, middle, and end that carries the reader somewhere. Think of your essay as a story that <strong style="color: var(--ink);">reveals something about who you are</strong> through the way it unfolds. You're not just reporting what happened; you're crafting an experience for the reader.</p>
+      </div>
+
+      <h3 style="margin-bottom: 1rem;">What makes a strong arc?</h3>
+      <div class="card-grid" style="margin-bottom: 1.5rem;">
+        <div class="card">
+          <h3>A specific moment</h3>
+          <p>Every great arc starts with something concrete — a single incident, decision, or observation that only you experienced.</p>
+        </div>
+        <div class="card">
+          <h3>A sense of movement</h3>
+          <p>Something shifts over the course of the essay — your understanding, your relationship with something, or who you are.</p>
+        </div>
+        <div class="card">
+          <h3>You as the star</h3>
+          <p>As Vassar's admissions office puts it: "You can share the stage with others, but the audience wants to see YOU."</p>
+        </div>
+        <div class="card">
+          <h3>An honest voice</h3>
+          <p>Admissions readers are seasoned. They can tell when you're being sincere — and when you're not. Write in the language you actually use.</p>
+        </div>
+      </div>
+
+      <h3 style="margin-bottom: 0.75rem;">Building your arc — questions to consider:</h3>
+      <div class="card" style="margin-bottom: 1.5rem;">
+        <ul style="list-style: none; color: var(--ink-muted); font-size: 0.92rem;">
+          <li style="padding: 0.4rem 0; border-bottom: 1px solid var(--border);">What is the single specific incident or moment your essay is built around?</li>
+          <li style="padding: 0.4rem 0; border-bottom: 1px solid var(--border);">What do you care about most — and how does this story show that?</li>
+          <li style="padding: 0.4rem 0; border-bottom: 1px solid var(--border);">What changed, shifted, or became clearer for you by the end?</li>
+          <li style="padding: 0.4rem 0;">What qualities emerge about you — that an admissions officer wouldn't already know from your transcript?</li>
+        </ul>
+      </div>
+
+      <p style="font-size: 0.9rem; color: var(--ink-faint);">Sketch your arc here — what's the shape of your story?</p>
+      <textarea class="write-area" placeholder="Where does it start? What shifts? Where does it land?"></textarea>
+    </div>
+
+    <div id="dtab-inout" class="tab-panel">
+      <h2>In &amp; Out: Scene and Reflection</h2>
+      <div class="card card-forest" style="margin-bottom: 1.5rem;">
+        <p>This is a technique for <strong style="color: var(--ink);">how to move through your essay</strong> — not just what it's about. The most powerful college essays weave back and forth between two modes: being fully <em>inside</em> a moment, and stepping <em>outside</em> it to reflect on what it meant.</p>
+      </div>
+
+      <div class="arc-steps">
+        <div class="arc-step">
+          <div class="arc-dot"></div>
+          <h3>Start "in scene"</h3>
+          <p>Drop the reader right into a specific moment. Use narrative details — setting, dialogue, sensory description, character. Make them feel present.</p>
+        </div>
+        <div class="arc-step">
+          <div class="arc-dot" style="background: var(--teal);"></div>
+          <h3>Sprinkle in reflection</h3>
+          <p>Step outside the moment briefly. Share something you understand now that you maybe didn't then — why this moment is significant to you.</p>
+        </div>
+        <div class="arc-step">
+          <div class="arc-dot"></div>
+          <h3>Return to scene</h3>
+          <p>Go back into the story. Continue the narrative with descriptive, specific writing. Keep the reader inside the experience.</p>
+        </div>
+        <div class="arc-step">
+          <div class="arc-dot" style="background: var(--teal);"></div>
+          <h3>Concluding reflection</h3>
+          <p>Land on what you've processed about this experience — how it shaped you, what it prepared you for, or what it revealed about who you are.</p>
+        </div>
+      </div>
+
+      <h3 style="margin: 1.5rem 0 0.75rem;">Check your draft against these questions:</h3>
+      <div class="card" style="margin-bottom: 1.5rem;">
+        <ul style="list-style: none; color: var(--ink-muted); font-size: 0.92rem;">
+          <li style="padding: 0.4rem 0; border-bottom: 1px solid var(--border);">Are you building scene anywhere? If so — is it conveying what you want it to?</li>
+          <li style="padding: 0.4rem 0; border-bottom: 1px solid var(--border);">If not — where could you add setting details, dialogue, or sensory description?</li>
+          <li style="padding: 0.4rem 0; border-bottom: 1px solid var(--border);">Are you including reflection? Where in the essay does it appear?</li>
+          <li style="padding: 0.4rem 0;">If not — where could you pause and share a moment of insight or meaning?</li>
+        </ul>
+      </div>
+
+      <p style="font-size: 0.9rem; color: var(--ink-faint);">Try writing a short "in scene" opening (3–5 sentences) right here:</p>
+      <textarea class="write-area" placeholder="Start mid-action. Try: &quot;The smell of engine oil hit me before I even opened the garage door...&quot; or &quot;My grandmother set down her chopsticks and looked at me like I had said something in a foreign language — which, of course, I had...&quot;"></textarea>
+    </div>
+
+    <div id="dtab-samples" class="tab-panel">
+      <h2>Sample essay analysis</h2>
+      <div class="card" style="margin-bottom: 1.5rem;">
+        <p>Reading strong essays helps you understand what makes them work. For each sample essay your teacher shares, practice this analysis to sharpen your own writing instincts.</p>
+      </div>
+
+      <h3 style="margin-bottom: 1rem;">For each sample essay, ask:</h3>
+      <div class="card-grid">
+        <div class="card">
+          <h3>What qualities emerge?</h3>
+          <p>Write 2–4 character traits that come through about the applicant.</p>
+        </div>
+        <div class="card">
+          <h3>Where is the "scene"?</h3>
+          <p>Identify a moment where you feel like you're right there with the writer.</p>
+        </div>
+        <div class="card">
+          <h3>Where is the reflection?</h3>
+          <p>Find a sentence where the writer steps back and tells you what something meant.</p>
+        </div>
+        <div class="card">
+          <h3>What's memorable?</h3>
+          <p>What's the one thing about this essay you'll still remember tomorrow?</p>
+        </div>
+      </div>
+
+      <h3 style="margin-bottom: 0.75rem;">Your analysis notes:</h3>
+      <textarea class="write-area" style="min-height: 220px;" placeholder="Essay title or sample name:
+
+Qualities I noticed:
+
+A strong &#39;scene&#39; moment:
+
+A moment of reflection:
+
+What makes this essay memorable:"></textarea>
+    </div>
+
+  </div>
+</section>
+
+<!-- ===== WATCH ===== -->
+<section id="watch">
+  <div class="container">
+    <div class="section-label">Videos</div>
+    <h1>Watch &amp; learn.</h1>
+    <p style="font-size: 1.05rem; color: var(--ink-muted); margin-bottom: 2.5rem;">Click a video below to watch it on YouTube. Take notes in the space at the bottom as you go.</p>
+
+    <div style="display: flex; flex-direction: column; gap: 1rem; margin-bottom: 2.5rem;" id="video-list">
+
+      <a href="https://youtu.be/2-Sf20y72P0?si=vyh9BCnwvt56ysUM" target="_blank" style="text-decoration: none;">
+        <div class="card" style="display: flex; align-items: center; gap: 1.25rem; padding: 1.25rem 1.5rem; transition: border-color 0.15s, box-shadow 0.15s;" onmouseover="this.style.borderColor='var(--coral)';this.style.boxShadow='0 2px 12px rgba(232,65,42,0.12)'" onmouseout="this.style.borderColor='';this.style.boxShadow=''">
+          <div style="width: 56px; height: 56px; border-radius: 50%; background: var(--coral); color: white; display: flex; align-items: center; justify-content: center; font-size: 1.3rem; flex-shrink: 0;">▶</div>
+          <div style="flex: 1; min-width: 0;">
+            <p style="font-weight: 600; color: var(--ink); margin-bottom: 0.2rem; font-size: 0.95rem;">How to Write an OUTSTANDING Personal Statement</p>
+            <p style="font-size: 0.85rem; color: var(--teal); margin: 0;">youtu.be/2-Sf20y72P0 ↗</p>
+          </div>
+        </div>
+      </a>
+
+      <a href="https://youtu.be/uk7pLY4jbDU?si=Pf_6fEc1a5tP9G9e" target="_blank" style="text-decoration: none;">
+        <div class="card" style="display: flex; align-items: center; gap: 1.25rem; padding: 1.25rem 1.5rem; transition: border-color 0.15s, box-shadow 0.15s;" onmouseover="this.style.borderColor='var(--coral)';this.style.boxShadow='0 2px 12px rgba(232,65,42,0.12)'" onmouseout="this.style.borderColor='';this.style.boxShadow=''">
+          <div style="width: 56px; height: 56px; border-radius: 50%; background: var(--coral); color: white; display: flex; align-items: center; justify-content: center; font-size: 1.3rem; flex-shrink: 0;">▶</div>
+          <div style="flex: 1; min-width: 0;">
+            <p style="font-weight: 600; color: var(--ink); margin-bottom: 0.2rem; font-size: 0.95rem;">How to Write on a Common Topic</p>
+            <p style="font-size: 0.85rem; color: var(--teal); margin: 0;">youtu.be/uk7pLY4jbDU ↗</p>
+          </div>
+        </div>
+      </a>
+
+      <a href="https://youtu.be/VubqWKkwW1w?si=klvf9j1y49tcIFFi" target="_blank" style="text-decoration: none;">
+        <div class="card" style="display: flex; align-items: center; gap: 1.25rem; padding: 1.25rem 1.5rem; transition: border-color 0.15s, box-shadow 0.15s;" onmouseover="this.style.borderColor='var(--coral)';this.style.boxShadow='0 2px 12px rgba(232,65,42,0.12)'" onmouseout="this.style.borderColor='';this.style.boxShadow=''">
+          <div style="width: 56px; height: 56px; border-radius: 50%; background: var(--coral); color: white; display: flex; align-items: center; justify-content: center; font-size: 1.3rem; flex-shrink: 0;">▶</div>
+          <div style="flex: 1; min-width: 0;">
+            <p style="font-weight: 600; color: var(--ink); margin-bottom: 0.2rem; font-size: 0.95rem;">College Essay Brainstorming</p>
+            <p style="font-size: 0.85rem; color: var(--teal); margin: 0;">youtu.be/VubqWKkwW1w ↗</p>
+          </div>
+        </div>
+      </a>
+
+    </div>
+
+    <hr class="section-divider">
+
+    <h2>As you watch, take notes</h2>
+    <p>Jot down any insights, ideas, or moments that connect to your own essay topic.</p>
+    <textarea class="write-area" style="min-height: 200px;" placeholder="Notes from the videos..."></textarea>
+  </div>
+</section>
+
+<script>
+  function showSection(id) {
+    document.querySelectorAll('section').forEach(s => s.classList.remove('active'));
+    document.querySelectorAll('.nav-links a, .nav-links button').forEach(a => a.classList.remove('active'));
+    const sec = document.getElementById(id);
+    const nav = document.getElementById('nav-' + id);
+    if (sec) sec.classList.add('active');
+    if (nav) nav.classList.add('active');
+    window.scrollTo(0, 0);
+    history.replaceState(null, '', '#' + id);
+    return false;
+  }
+
+  function routeFromHash() {
+    const hash = window.location.hash.replace('#', '') || 'home';
+    const valid = ['home','reflect','brainstorm','draft','watch'];
+    showSection(valid.includes(hash) ? hash : 'home');
+  }
+
+  window.addEventListener('hashchange', routeFromHash);
+  window.addEventListener('DOMContentLoaded', routeFromHash);
+
+  
+
+  function switchTab(name, btn) {
+    document.querySelectorAll('#brainstorm .tab-panel').forEach(p => p.classList.remove('active'));
+    document.querySelectorAll('#brainstorm .tab-btn').forEach(b => b.classList.remove('active'));
+    document.getElementById('tab-' + name).classList.add('active');
+    btn.classList.add('active');
+  }
+
+  function switchDraftTab(name, btn) {
+    document.querySelectorAll('#draft .tab-panel').forEach(p => p.classList.remove('active'));
+    document.querySelectorAll('#draft .tab-btn').forEach(b => b.classList.remove('active'));
+    document.getElementById('dtab-' + name).classList.add('active');
+    btn.classList.add('active');
+  }
+
+  function setVideoLink(id, url) {
+    const link = document.getElementById(id + '-link');
+    const desc = document.getElementById(id + '-desc');
+    const match = url.match(/(?:v=|youtu\.be\/)([a-zA-Z0-9_-]{11})/);
+    if (match) {
+      link.href = 'https://www.youtube.com/watch?v=' + match[1];
+      desc.textContent = 'Click the play button to watch on YouTube ↗';
+      desc.style.color = "var(--teal)";
+    } else {
+      link.href = '#';
+      desc.textContent = 'Paste a YouTube URL to set this video.';
+      desc.style.color = 'var(--ink-faint)';
+    }
+  }
+
+  const qualities = [
+    "accommodating","accurate","adaptable","adventurous","ambitious","analytical",
+    "appreciate diversity","appreciate feedback","approachable","articulate","assertive",
+    "authentic","autonomous","calm under pressure","candid","cautious","cheerful",
+    "collaborative","compassionate","committed to integrity","competitive","confident",
+    "congenial","conscientious","conservative","considerate","consistent","cooperative",
+    "cost-conscious","creative","curious","decisive","dedicated","dependable",
+    "detail-oriented","determined","diplomatic","disciplined","discreet","driven",
+    "dynamic","eager","efficient","empathetic","energetic","enjoy challenges",
+    "enthusiastic","entrepreneurial","ethical","fair","flexible","friendly","generous",
+    "goal-oriented","hard-working","helpful","honest","imaginative","inclusive",
+    "independent","industrious","influential","innovative","intelligent","intuitive",
+    "inquisitive","level-headed","loyal","mature","methodical","observant","open-minded",
+    "optimistic","organized","outgoing","passionate","patient","perceptive","persistent",
+    "personable","persuasive","pleasant","poised","polite","possess a good sense of humor",
+    "possess common sense","practical","precise","process-oriented","productive",
+    "professional","punctual","a quick learner","rational","reliable","resourceful",
+    "realistic","resilient","respectful","results-oriented","responsible","responsive",
+    "seek challenges","self-aware","self-motivated","self-sufficient","self-reliant",
+    "sincere","spontaneous","tactful","take direction well","take initiative",
+    "team-oriented","tenacious","thoughtful","thorough","tolerant","trustworthy",
+    "values-oriented","versatile","visionary","willing to take risks"
+  ];
+
+  const qContainer = document.getElementById('identity-checklist');
+  qContainer.innerHTML = '';
+  qualities.forEach((q, i) => {
+    const el = document.createElement('div');
+    el.className = 'check-item';
+    el.dataset.index = i;
+    el.innerHTML = `<div class="check-box"></div><span>${q}</span><span class="star-btn" style="margin-left:auto;font-size:1rem;color:var(--border);display:none;cursor:pointer;" title="Add to top 10">☆</span>`;
+    el.querySelector('.check-box').addEventListener('click', (e) => { e.stopPropagation(); toggleQuality(el); });
+    el.querySelector('.star-btn').addEventListener('click', (e) => { e.stopPropagation(); toggleStar(el); });
+    el.addEventListener('click', () => toggleQuality(el));
+    qContainer.appendChild(el);
+  });
+
+  function updateCounter() {
+    const checked = qContainer.querySelectorAll('.check-item.checked').length;
+    const starred = qContainer.querySelectorAll('.check-item.starred').length;
+    document.getElementById('check-counter').textContent = `${checked} checked · ${starred} starred`;
+  }
+
+  function toggleQuality(el) {
+    el.classList.toggle('checked');
+    const box = el.querySelector('.check-box');
+    const star = el.querySelector('.star-btn');
+    if (el.classList.contains('checked')) {
+      box.textContent = '✓';
+      star.style.display = 'inline';
+    } else {
+      box.textContent = '';
+      star.style.display = 'none';
+      if (el.classList.contains('starred')) {
+        el.classList.remove('starred');
+        el.style.outline = '';
+        star.textContent = '☆';
+        star.style.color = 'var(--border)';
+      }
+    }
+    updateCounter();
+  }
+
+  function toggleStar(el) {
+    const star = el.querySelector('.star-btn');
+    const starredCount = qContainer.querySelectorAll('.check-item.starred').length;
+    if (el.classList.contains('starred')) {
+      el.classList.remove('starred');
+      el.style.outline = '';
+      star.textContent = '☆';
+      star.style.color = 'var(--border)';
+    } else {
+      if (starredCount >= 10) { star.style.color = 'var(--ink-faint)'; setTimeout(() => { star.style.color = 'var(--border)'; }, 600); return; }
+      el.classList.add('starred');
+      el.style.outline = '2px solid var(--teal)';
+      star.textContent = '★';
+      star.style.color = 'var(--teal)';
+    }
+    updateCounter();
+  }
+
+  const firstLines = [
+    "Unlike many mathematicians, I live in an irrational world; I feel that my life is defined by a certain amount of irrationalities that bloom too frequently, such as my brief foray in front of 400 people without my pants.",
+    "When I was 8 years old, I shocked my family and a local archaeologist by discovering artifacts dating back almost 3,500 years.",
+    "When I was in eighth grade I couldn't read.",
+    "While traveling through the daily path of life, have you ever stumbled upon a hidden pocket of the universe?",
+    "The spaghetti burbled and slushed around the pan, and as I stirred it, the noises it gave off began to sound increasingly like bodily functions.",
+    "I had never seen anyone get so excited about mitochondria.",
+    "Cancer tried to defeat me, and it failed.",
+    "I stand on the riverbank surveying this rippled range like some riparian cowboy—instead of chaps, I wear vinyl, thigh-high waders and a lasso of measuring tape and twine is slung over my arm.",
+    "After moving five times by first grade, I believed that your location was like a souvenir you found offered up by the waves: pretty but insignificant.",
+    "Sitting cross-legged on the floor of a Bhimanagar slum dwelling in Bangalore, I ran my fingers across a fresh cut on my forehead.",
+    "Good Grief! You never would have guessed that an unassuming meek lovable loser like Charlie Brown would have an influence on anyone; but indeed he has.",
+    "Some fathers might disapprove of their children handling noxious chemicals in the garage.",
+    "I was paralyzed from the waist down. I would try to move my leg or even shift an ankle but I never got a response. This was the first time thoughts of death ever crossed my mind.",
+    "As an Indian-American, I am forever bound to the hyphen.",
+    "Journey to Gulu's outskirts and you will uncover the scene where education was raped 11 years ago; some Ugandan teens also lost their innocence in exchange for their lives.",
+    "I have been surfing Lake Michigan since I was 3 years old.",
+    "I change my name each time I place an order at Starbucks."
+  ];
+
+  const flContainer = document.getElementById('firstlines-list');
+  firstLines.forEach((line, i) => {
+    const id = 'fl-' + i;
+    const wrapper = document.createElement('div');
+    wrapper.style.cssText = 'margin-bottom: 1rem;';
+    wrapper.innerHTML = `
+      <div style="display: flex; align-items: flex-start; gap: 0.85rem; padding: 1rem 1.25rem; background: var(--surface); border: 1px solid var(--border); border-radius: var(--radius); cursor: pointer; transition: border-color 0.15s, background 0.15s;" id="fl-card-${i}" onclick="toggleFL(${i})">
+        <div id="fl-star-${i}" style="font-size: 1.2rem; flex-shrink: 0; margin-top: 0.1rem; color: var(--border); transition: color 0.15s;" title="Mark this one">☆</div>
+        <div style="flex: 1;">
+          <p style="font-family: var(--font-head); font-style: italic; color: var(--ink); margin-bottom: 0; font-size: 0.97rem; line-height: 1.6;">"${line}"</p>
+        </div>
+      </div>
+      <textarea class="write-area" style="border-radius: 0 0 var(--radius) var(--radius); border-top: none; min-height: 70px; font-size: 0.88rem;" placeholder="Qualities you'd expect in this writer..."></textarea>
+    `;
+    flContainer.appendChild(wrapper);
+  });
+
+  function toggleFL(i) {
+    const card = document.getElementById('fl-card-' + i);
+    const star = document.getElementById('fl-star-' + i);
+    const marked = card.dataset.marked === 'true';
+    card.dataset.marked = !marked;
+    if (!marked) {
+      card.style.borderColor = 'var(--coral)';
+      card.style.background = 'var(--coral-dim)';
+      star.textContent = '★';
+      star.style.color = 'var(--coral)';
+    } else {
+      card.style.borderColor = 'var(--border)';
+      card.style.background = 'var(--surface)';
+      star.textContent = '☆';
+      star.style.color = 'var(--border)';
+    }
+  }
+</script>
+
+
+</body></html>
