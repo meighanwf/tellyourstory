@@ -1340,6 +1340,7 @@ What makes this essay memorable:"></textarea>
   ];
 
   const qContainer = document.getElementById('identity-checklist');
+  qContainer.innerHTML = '';
   qualities.forEach((q, i) => {
     const el = document.createElement('div');
     el.className = 'check-item';
